@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.client.secure.ClientInformationActivity"
+    android:background="@color/bg_color">
+
+    <include
+        android:id="@+id/lay_header"
+        layout="@layout/header_with_arrow_back_secure_ui"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_below="@+id/lay_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/ubuntu_light"
+        android:text="Informasi Kontrak Saya"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/text_blue_color" />
+    <LinearLayout
+        android:layout_below="@+id/tv_title"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:weightSum="10"
+            android:background="@color/bg_white_color"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="32dp">
+            <TextView
+                android:text="No. Kontrak"
+                android:fontFamily="@font/ubuntu_light"
+                android:textSize="13sp"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_blue_color"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:text="Tenor"
+                android:fontFamily="@font/ubuntu_light"
+                android:textSize="13sp"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_blue_color"
+                android:layout_weight="1.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="Sisa Tenor"
+                android:fontFamily="@font/ubuntu_light"
+                android:textSize="13sp"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_blue_color"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="Keterlambatan"
+                android:fontFamily="@font/ubuntu_light"
+                android:textSize="13sp"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_blue_color"
+                android:layout_weight="2.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <View
+            android:background="#33000000"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvw_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Public/Project/umbrella/rentas/mncleasing/MNCLeasing/app/src/main/res/layout/activity_client_contact_us.xml" value="0.3671875" />
+        <entry key="..\:/Users/Public/Project/umbrella/rentas/mncleasing/MNCLeasing/app/src/main/res/layout/activity_client_dashboard.xml" value="0.296195652173913" />
+        <entry key="..\:/Users/Public/Project/umbrella/rentas/mncleasing/MNCLeasing/app/src/main/res/layout/activity_faq.xml" value="0.3671875" />
+        <entry key="src/main/res/drawable/header_logo_gold.xml" value="0.4169230769230769" />
+        <entry key="src/main/res/drawable/ic_download.xml" value="0.4169230769230769" />
+        <entry key="src/main/res/drawable/ic_error_report.xml" value="0.4169230769230769" />
+        <entry key="src/main/res/drawable/ic_info_outline.xml" value="0.24895833333333334" />
+        <entry key="src/main/res/drawable/selector_navigation_home.xml" value="0.41574074074074074" />
+        <entry key="src/main/res/layout/activity_client_contact_us.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_client_dashboard.xml" value="0.40102564102564103" />
+        <entry key="src/main/res/layout/activity_client_information.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_client_information_detail.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_client_installment_detail.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_client_notification.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_driver_assurance.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_driver_contact_us.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_driver_dashboard.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_driver_profile.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_login.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_splash_screen.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/activity_test.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/adapter_client_instalment_item.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/adapter_clientinfo.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/adapter_document.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/adater_client_instalment_item.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/bottomnav_client.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/component_dialog_error.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/header_client_profile.xml" value="0.2328125" />
+        <entry key="src/main/res/layout/header_driver_profile.xml" value="0.2328125" />
+        <entry key="src/main/res/layout/header_secure_ui.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/layout/header_with_arrow_back_secure_ui.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/menu/bottomnav_client_menu.xml" value="0.40729166666666666" />
+        <entry key="src/main/res/menu/bottomnav_driver_menu.xml" value="0.40729166666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

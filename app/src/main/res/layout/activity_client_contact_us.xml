@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".ui.client.secure.ClientContactUsActivity">
+
+    <include
+        android:id="@+id/lay_header"
+        layout="@layout/header_secure_ui"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        layout="@layout/bottomnav_client"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:fontFamily="@font/ubuntu_light"
+        android:text="@string/hubungi_kami"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/text_blue_color"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_header"
+        />
+
+    <ListView
+        android:id="@+id/lv_client_contactus"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar"
+        >
+    </ListView>
+<!--    android:padding="24dp"-->
+    <!--        android:divider="@null"-->
+
+<!--    <ScrollView-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/lay_header"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="24dp"-->
+<!--            android:orientation="vertical" >-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_title"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/ubuntu_light"-->
+<!--                android:text="@string/hubungi_kami"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textColor="@color/text_blue_color"-->
+<!--                android:layout_marginBottom="40dp"-->
+<!--                />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingRight="8dp"-->
+<!--                android:paddingLeft="8dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:text="HEAD OFFICE"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textColor="@color/text_blue_color"-->
+<!--                    android:layout_marginBottom="16dp"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:text="@string/dummy_contact_us_1"-->
+<!--                    android:textSize="12sp"/>-->
+
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:layout_marginBottom="24dp"-->
+<!--                    android:layout_span="4"-->
+<!--                    android:background="?android:attr/listDivider" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingRight="8dp"-->
+<!--                android:paddingLeft="8dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:text="MAKASAR"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textColor="@color/text_blue_color"-->
+<!--                    android:layout_marginBottom="16dp"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:text="@string/dummy_contact_us_2"-->
+<!--                    android:textSize="12sp"/>-->
+
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:layout_marginBottom="24dp"-->
+<!--                    android:layout_span="4"-->
+<!--                    android:background="?android:attr/listDivider" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingRight="8dp"-->
+<!--                android:paddingLeft="8dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:text="BANJARMASIN"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textColor="@color/text_blue_color"-->
+<!--                    android:layout_marginBottom="16dp"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:text="@string/dummy_contact_us_3"-->
+<!--                    android:textSize="12sp"/>-->
+
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:layout_marginBottom="24dp"-->
+<!--                    android:layout_span="4"-->
+<!--                    android:background="?android:attr/listDivider" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:paddingRight="8dp"-->
+<!--                android:paddingLeft="8dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:text="BALIKPAPAN"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textColor="@color/text_blue_color"-->
+<!--                    android:layout_marginBottom="16dp"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:text="@string/dummy_contact_us_4"-->
+<!--                    android:textSize="12sp"/>-->
+
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:layout_marginBottom="24dp"-->
+<!--                    android:layout_span="4"-->
+<!--                    android:background="?android:attr/listDivider" />-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+<!--    </ScrollView>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

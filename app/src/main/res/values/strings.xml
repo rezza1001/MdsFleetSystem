@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Mitra Data Sarana</string>
+
+    <!--button-->
+    <string name="btn_login">Login</string>
+
+    <!--dialog-->
+    <string name="close">Selesai</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Batal</string>
+    <string name="save">Simpan</string>
+    <string name="title">Title</string>
+    <string name="text_succeed">Data berhasil disimpan.</string>
+    <string name="text_forgotpwd_succeed">Password berhasil diubah.</string>
+
+    <!--login-->
+    <string name="username">Email or Username</string>
+    <string name="password">Password</string>
+    <string name="hubungi_kami">Hubungi Kami</string>
+    <string name="lupa_password">Lupa Password</string>
+    <string name="login">Login</string>
+    <string name="alert_username_empty">Username harus diisi.</string>
+    <string name="alert_password_empty">Password harus diisi.</string>
+
+    <!--forgot password-->
+    <string name="title_forgotpwd">Lupa Password</string>
+    <!--<string name="alert_username_empty">Username harus diisi.</string>
+    <string name="alert_password_empty">Password harus diisi.</string>-->
+
+    <!--change password-->
+    <string name="title_changepwd">Lupa Password</string>
+    <string name="alert_oldpassword_empty">Password Lama harus diisi.</string>
+    <string name="alert_newpassword_empty">Password Baru harus diisi.</string>
+    <string name="alert_confpassword_empty">Password Baru Lagi harus diisi.</string>
+    <string name="alert_confpassword_notequal">Password Baru dan Password Baru Lagi tidak sama.</string>
+
+    <!--client information-->
+    <string name="information">Informasi</string>
+
+    <!--driver update km-->
+    <string name="title_updatekm">Update KM</string>
+    <string name="alert_fleetid_empty">Silakan pilih Kendaraan.</string>
+    <string name="alert_odometer_empty">Odometer (KM) harus diisi.</string>
+
+    <!--driver report-->
+    <string name="title_report">Laporan Transaksi</string>
+
+    <!--driver daftar kendaraan-->
+    <string name="title_fleetlist">Daftar Kendaraan</string>
+
+    <!--driver service kendaraan-->
+    <string name="title_servicefleet">Pengajuan Service Kendaraan</string>
+    <string name="alert_km_aktual_empty">KM Aktual harus diisi.</string>
+
+    <!--driver klaim asuransi-->
+    <string name="title_assuranceclaim">Klaim Asuransi</string>
+
+    <!--driver perpanjang stnk-->
+    <string name="title_stnk">Perpanjang STNK</string>
+
+    <!--client dashboard-->
+    <string name="title_dashboard">Dashboard</string>
+
+    <!--client promo-->
+    <string name="title_promo">Promo</string>
+
+    <!--client promo-->
+    <string name="title_faq">FAQ</string>
+
+    <!--client profile-->
+    <string name="title_profile">Profil</string>
+
+    <!--client promo-->
+    <string name="title_contactus">Hubungi Kami</string>
+
+    <!--image picker-->
+    <string name="dialog_permission_title">Grant Permissions</string>
+    <string name="dialog_permission_message">This app needs permission to use this feature. You can grant them in app settings.</string>
+    <string name="go_to_settings">GOTO SETTINGS</string>
+
+    <!--dummy-->
+    <string name="dummy_content_promo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
+
+    <!--    notification-->
+    <string name="title_notification">Notification</string>
+
+    <string name="e_device_error_title">Kesalahan Perangkat</string>
+    <string name="e_device_error_message">Aplikasi MNC Leasing Mobile tidak mendukung\nperangkat root.</string>
+    <string name="text_forgot_password">Untuk memulihkan password Anda, silakan menghubungi unit Customer Care MNC Leasing di nomor <b>021-3910993 ext 1</b>.</string>
+    <string name="text_forgot_password2">Petugas kami akan dengan senang hati membantu Anda.</string>
+
+    <string name="text_notif_cancel">Anda yakin akan membatalkan transaksi ini ?</string>
+    <string name="text_notif_save">Anda yakin akan men-submit data ?</string>
+
+    <string-array name="absent_type">
+        <item>Kantor</item>
+        <item>Luar Kantor</item>
+    </string-array>
+</resources>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".ui.OpenContactUsActivity">
+
+    <include
+        android:id="@+id/lay_header"
+        layout="@layout/header_open_ui"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/ubuntu_light"
+        android:text="Kontak Kami"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/text_blue_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_header" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="Jika ada pertanyaan atau informasi yang dibutuhkan,\nsilahkan menghubungi PIC kami :"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp"
+            />
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gl_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="start"
+            app:alignmentMode="alignMargins"
+            app:columnCount="2"
+            app:columnOrderPreserved="false"
+            app:rowCount="3">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_contact_phone"
+                android:scaleType="fitXY"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_light"
+                android:text="021-3910993 ext 290/291"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/text_blue_color"
+                android:layout_marginBottom="8dp"
+                app:layout_gravity="center_vertical"
+                />
+
+            <ImageView
+                android:layout_width="31dp"
+                android:layout_height="31dp"
+                android:src="@drawable/ic_smartphone"
+                android:scaleType="fitXY"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_light"
+                android:text="0817-091-0993"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/text_blue_color"
+                android:layout_marginBottom="8dp"
+                app:layout_gravity="center_vertical"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_contact_mail"
+                android:scaleType="fitXY"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_light"
+                android:text="service.mncleasing@mncgroup.com"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/text_blue_color"
+                android:layout_marginBottom="8dp"
+                app:layout_gravity="center_vertical"
+                />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="Jam Kerja"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="@color/text_blue_color"
+            android:layout_marginBottom="8dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08.30 s/d 17.30 WIB"
+            android:fontFamily="@font/ubuntu_light"
+            android:textSize="14sp"/>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

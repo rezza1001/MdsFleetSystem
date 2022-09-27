@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rvly_header"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/ubuntu_light"
+            android:textStyle="bold"
+            android:text="VERIFIKASI"
+            android:textColor="@color/bg_white_color"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:id="@+id/rvly_back"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                app:tint="@color/bg_white_color" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/rvly_header"
+        android:layout_above="@+id/btn_verification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_above="@+id/btn_verification"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txvw_type"
+                android:text="Informasi Absensi"
+                android:textColor="@color/text_blue_color"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/ubuntu_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:cardBackgroundColor="@color/bg_white_color"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="1dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Tanggal"
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/txvw_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7.5"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Senin, 12 September 2022"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Jam"
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/txvw_time"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7.5"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="08:30"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2.5"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Lokasi"
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/txvw_location"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7.5"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Kantor"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="2.5" />
+
+                        <TextView
+                            android:id="@+id/tvw_gps"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="7.5"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Pinang Utara, RT.001/RW.006, Panunggangan., Kec. Cibodas, Kota Tangerang. -6.223196, 106.618130"
+                            android:textColor="#80000000"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/txvw_note"
+                android:text="Alasan Keterlambatan"
+                android:textColor="@color/text_blue_color"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/ubuntu_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/edtx_note"
+                android:background="@drawable/shape_edittext"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:lines="2"
+                android:hint="Masukan Alasan..."
+                android:textSize="14sp"
+                android:inputType="textMultiLine"
+                android:textColor="#de000000"
+                android:fontFamily="@font/ubuntu_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/lnly_photo"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginEnd="17dp"
+                android:gravity="start"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Photo Absen"
+                    android:textColor="@color/text_blue_color"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/ubuntu_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <com.mds.mobile.absent.ImageChooserView
+                    android:id="@+id/imvw_chooser"
+                    android:layout_marginTop="1dp"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"/>
+            </LinearLayout>
+            <CheckBox
+                android:id="@+id/checkbox_usedCar"
+                android:text="Kendaraan masih digunakan"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/ubuntu_light"
+                android:textColor="@color/text_blue_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+    <Button
+        android:id="@+id/btn_verification"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="@font/ubuntu_light"
+        android:text="Verifikasi"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+</RelativeLayout>

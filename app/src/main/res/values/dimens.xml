@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--<dimen name="bottom_navigation_icon_size" tools:override="true">32dp</dimen>-->
+    <dimen name="design_bottom_navigation_height" tools:override="true">64dp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">9sp</dimen>
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">9sp</dimen>
+    <dimen name="design_bottom_navigation_margin" tools:override="true">8dp</dimen>
+    <dimen name="design_bottom_navigation_icon_size" tools:override="true">32dp</dimen>
+
+    <dimen name="font_size_verysmall">12sp</dimen>
+</resources>

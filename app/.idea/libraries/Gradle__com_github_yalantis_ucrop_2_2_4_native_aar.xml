@@ -1,0 +1,42 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.yalantis:ucrop:2.2.4-native@aar">
+    <ANNOTATIONS>
+      <root url="jar://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/init.d/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../../gradle/gradle-6.3/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../config/gradle-5.4.1/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/init.d/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/init.d/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/init.d/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/res" />
+      <root url="jar://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/res" />
+      <root url="file://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../../gradle/gradle-6.3/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../gradle/gradle-6.3/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/res" />
+      <root url="file://$PROJECT_DIR$/../../../gradle/gradle-6.3/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../../config/gradle-5.4.1/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../../config/gradle-5.4.1/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/res" />
+      <root url="file://$PROJECT_DIR$/../../../../../config/gradle-5.4.1/caches/transforms-2/files-2.1/ca041ada26e5947e769a52012e04a05c/ucrop-2.2.4-native/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/init.d/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/31e64490f96705656d54eb57b624cd3d2fb2c406/ucrop-2.2.4-native-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/31e64490f96705656d54eb57b624cd3d2fb2c406/ucrop-2.2.4-native-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../gradle/gradle-6.3/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/31e64490f96705656d54eb57b624cd3d2fb2c406/ucrop-2.2.4-native-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/31e64490f96705656d54eb57b624cd3d2fb2c406/ucrop-2.2.4-native-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../config/gradle-5.4.1/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/31e64490f96705656d54eb57b624cd3d2fb2c406/ucrop-2.2.4-native-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/init.d/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/2adc61b96801ceffc285724298709ee96b4dff31/ucrop-2.2.4-native-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../Programming/Android/gradle/gradle-6.3/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/2adc61b96801ceffc285724298709ee96b4dff31/ucrop-2.2.4-native-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../gradle/gradle-6.3/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/2adc61b96801ceffc285724298709ee96b4dff31/ucrop-2.2.4-native-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/2adc61b96801ceffc285724298709ee96b4dff31/ucrop-2.2.4-native-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../config/gradle-5.4.1/caches/modules-2/files-2.1/com.github.yalantis/ucrop/2.2.4-native/2adc61b96801ceffc285724298709ee96b4dff31/ucrop-2.2.4-native-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

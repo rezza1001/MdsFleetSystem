@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "623533188378",
+    "project_id": "mdsproject-bc4d1",
+    "storage_bucket": "mdsproject-bc4d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623533188378:android:a0774db556c3c718bcf8a3",
+        "android_client_info": {
+          "package_name": "com.mds.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623533188378-h1827g9mq88igdhlqrs81lkg8js0kteu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYl9yOfPgkrEm4H75G5Hlv1IXPj_j4IKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623533188378-h1827g9mq88igdhlqrs81lkg8js0kteu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

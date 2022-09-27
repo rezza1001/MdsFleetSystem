@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txvw_document"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toStartOf="@+id/imvw_download"
+        android:fontFamily="@font/ubuntu_light"
+        android:text="Dokumen pendukung"
+        android:textColor="#2894dd" />
+    <ImageView
+        android:id="@+id/imvw_download"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_download"
+        android:layout_width="40dp"
+        android:layout_height="35dp"/>
+    <View
+        android:layout_below="@+id/txvw_document"
+        android:background="#DDD8D8"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</RelativeLayout>

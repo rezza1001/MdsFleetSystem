@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mds.mobile">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <activity android:name=".ui.client.secure.ClientPromoDetailActivity" />
+        <activity android:name=".ui.client.secure.ClientNotificationActivity" />
+        <activity android:name=".ui.driver.secure.DriverNotificationActivity" />
+        <activity android:name=".ui.driver.secure.DriverChangePasswordActivity" />
+        <activity
+            android:name=".ui.driver.secure.DriverProfileActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.OpenForgotPasswordActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.OpenContactUsActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.ClientChangePasswordActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.ClientProfileActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.ClientContactUsActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.ClientFaqActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverFaqActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.FaqActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.ClientPromoActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverAssuranceForceNatureActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverStnkActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverAssuranceLossActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverAssuranceOpponentsActivity"
+            android:screenOrientation="nosensor" />
+        <activity android:name=".ui.imagepicker.MyCameraActivity" />
+        <activity android:name=".ui.imagepicker.CameraActivity" />
+        <activity
+            android:name=".ui.driver.secure.DriverAssuranceSingleActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverAssuranceActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverFleetServiceActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverFleetServiceActivity2"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverFleetServiceActivity3"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverFleetServiceActivity4"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverContactUsActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverFleetListActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverReportActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverUpdateKmActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.driver.secure.DriverDashboardActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.ClientInformationDetailActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.ClientInformationActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.ClientDashboardActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.client.secure.DetailInstallmentActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.LoginActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".absent.VerificationActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".absent.AbsentActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".handoverkey.ReceivedActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".handoverkey.ReturnedActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".handoverkey.MainHandoverActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.SplashScreenActivity"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.imagepicker.ImagePickerActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="nosensor" /> <!-- uCrop cropping activity -->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.mds.mobile.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+
+</manifest>

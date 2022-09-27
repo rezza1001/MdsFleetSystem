@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/selector_navigation_home" />
+
+    <item android:id="@+id/nav_info"
+        android:title="Kontrak"
+        android:icon="@drawable/selector_navigation_info" />
+
+    <item android:id="@+id/nav_promo"
+        android:title="Promo"
+        android:icon="@drawable/selector_navigation_promo" />
+
+    <item android:id="@+id/nav_contact_us"
+        android:title="Hubungi Kami"
+        android:icon="@drawable/selector_navigation_contact_us" />
+
+    <item android:id="@+id/nav_profile"
+        android:title="Profil"
+        android:icon="@drawable/selector_navigation_profile" />
+</menu>

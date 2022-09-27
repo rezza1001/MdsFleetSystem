@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rvly_header"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="ABSENSI"
+            android:textColor="@color/bg_white_color"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/rvly_back"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                app:tint="@color/bg_white_color" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rvly_employee"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/profile_background_circle"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/rvly_back"
+            android:layout_width="45dp"
+            android:layout_height="45dp">
+            <ImageView
+                android:layout_margin="8dp"
+                android:src="@drawable/employee_default"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginStart="15dp"
+            android:layout_alignTop="@+id/rvly_employee"
+            android:layout_toEndOf="@+id/rvly_employee"
+            android:layout_alignBottom="@+id/rvly_employee"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txvw_name"
+                android:fontFamily="@font/ubuntu_light"
+                android:textColor="@color/bg_white_color"
+                android:textSize="15sp"
+                android:text="Name Here"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/txvw_mail"
+                android:textSize="14sp"
+                android:fontFamily="@font/ubuntu_light"
+                android:textColor="#80ffffff"
+                android:text="mail@gmail.com"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rvly_status"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@+id/rvly_header"
+        android:background="#00c853">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txvw_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/ubuntu_light"
+                android:text="Senin, 12 September 2022"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txvw_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/ubuntu_light"
+                android:text="08:30"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/rvly_status"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="#fddea9"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="1dp"
+                app:contentPadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:fontFamily="@font/ubuntu_light"
+                        android:textStyle="bold"
+                        android:text="Infromasi Absen"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_blue_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#574321"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/ubuntu_light"
+                                android:text="Masuk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/txvw_timeIn"
+                                android:textColor="#574321"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/ubuntu_light"
+                                android:textStyle="bold"
+                                android:text="08:00"
+                                android:layout_marginStart="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/ubuntu_light"
+                                android:text="Pulang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/txvw_timeOut"
+                                android:textColor="#574321"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/ubuntu_light"
+                                android:textStyle="bold"
+                                android:text="08:00"
+                                android:layout_marginStart="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_absentIn"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="1dp"
+                app:contentPadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:fontFamily="@font/ubuntu_light"
+                        android:textStyle="bold"
+                        android:text="Absen Masuk"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_blue_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:weightSum="10"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Tanggal"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/txvw_dateIn"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:textStyle="bold"
+                            android:text="Senin, 12 September 2022"
+                            android:layout_weight="7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:weightSum="10"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Jam"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/txvw_inTime"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:textStyle="bold"
+                            android:text="08:30"
+                            android:layout_weight="7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:weightSum="10"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Lokasi"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/txvw_location"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:textStyle="bold"
+                            android:text="Kantor"
+                            android:layout_weight="7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:weightSum="10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"/>
+                        <TextView
+                            android:id="@+id/txvw_inAddress"
+                            android:textColor="#80000000"
+                            android:textSize="12sp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Pinang Utara, RT.001/RW.006, Panunggangan., Kec. Cibodas, Kota Tangerang. -6.223196, 106.618130"
+                            android:layout_weight="7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:gravity="center"
+                    android:fontFamily="@font/ubuntu_light"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_blue_color"
+                    android:text="Belum melakukan absensi Masuk"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_absentOut"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/bg_white_color"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="1dp"
+                app:contentPadding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:fontFamily="@font/ubuntu_light"
+                        android:textStyle="bold"
+                        android:text="Absen Pulang"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_blue_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:weightSum="10"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Tanggal"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/txvw_outDate"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:textStyle="bold"
+                            android:text="-"
+                            android:layout_weight="7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:weightSum="10"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Jam"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/txvw_outTime"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:textStyle="bold"
+                            android:text="-"
+                            android:layout_weight="7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:weightSum="10"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:text="Lokasi"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/txvw_outLocation"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:textStyle="bold"
+                            android:text="-"
+                            android:layout_weight="7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:weightSum="10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"/>
+                        <TextView
+                            android:id="@+id/txvw_outAddress"
+                            android:textColor="#80000000"
+                            android:textSize="11sp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/ubuntu_light"
+                            android:layout_weight="7"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <TextView
+                    android:gravity="center"
+                    android:fontFamily="@font/ubuntu_light"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_blue_color"
+                    android:text="Belum melakukan absensi Pulang"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/shape_edittext"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/spnr_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"  />
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_checkIn"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_button"
+                    android:fontFamily="@font/ubuntu_light"
+                    android:text="Absen Masuk"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <Button
+                    android:id="@+id/btn_checkOut"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_button"
+                    android:fontFamily="@font/ubuntu_light"
+                    android:text="Absen Pulang"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+                
+            </LinearLayout>
+            
+            
+            
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

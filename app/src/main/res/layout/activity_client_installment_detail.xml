@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rvly_header"
+        android:background="@color/bg_white_color"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RelativeLayout
+            android:id="@+id/rvly_back"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?selectableItemBackground"
+            android:layout_width="60dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+        </RelativeLayout>
+        <TextView
+            android:textSize="17sp"
+            android:textColor="@color/text_blue_color"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Detail Angsuran"
+            android:layout_toEndOf="@+id/rvly_back"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/lnly_info"
+        android:background="#fddea9"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="15dp"
+        android:layout_below="@+id/rvly_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_info_outline"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            app:tint="#78551a" />
+        <TextView
+            android:text="Perhatian : \nUntuk cara bayar Giro. Harap siapkan dana H-3 dari tanggal jatuh tempo dikarenakan butuh proses kliring."
+            android:textColor="#78551a"
+            android:textSize="14sp"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_below="@+id/lnly_info"
+        android:background="#DCD9D9"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvw_data"
+        android:layout_below="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".ui.driver.secure.DriverDashboardActivity">
+
+    <include
+        android:id="@+id/lay_header"
+        layout="@layout/header_drivsecure_ui"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/rl_ojk"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="Application Version 1.0"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_header"
+        app:layout_constraintBottom_toTopOf="@id/rl_ojk"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hi, Adikrisna"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/text_blue_color"
+                android:layout_gravity="end"/>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="137dp">
+
+                <RelativeLayout
+                    android:id="@+id/rvly_absent"
+                    android:background="@drawable/bg_menu"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_absen"
+                            app:tint="@color/colorPrimaryDark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Absent"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rvly_handoverKey"
+                    android:background="@drawable/bg_menu"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_handover"
+                            app:tint="@color/colorPrimaryDark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Serah Terima Kunci"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gl_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:alignmentMode="alignMargins"
+                app:columnCount="2"
+                app:columnOrderPreserved="false"
+                app:rowCount="6">
+
+
+                <ImageView
+                    android:id="@+id/iv_km"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_dashboard_driver_km" />
+
+                <ImageView
+                    android:id="@+id/iv_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_dashboard_driver_service" />
+
+                <ImageView
+                    android:id="@+id/iv_assurance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_dashboard_driver_asuransi" />
+
+                <ImageView
+                    android:id="@+id/iv_stnk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_dashboard_driver_stnk" />
+
+                <ImageView
+                    android:id="@+id/iv_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_dashboard_driver_kendaraan" />
+
+                <ImageView
+                    android:id="@+id/iv_report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginBottom="4dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_dashboard_driver_laporan" />
+
+                <ImageView
+                    android:id="@+id/iv_contact_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="24dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_dashboard_driver_hubungi" />
+
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginBottom="24dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/selector_dashboard_driver_profile" />
+
+            </androidx.gridlayout.widget.GridLayout>
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                >-->
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Application Version 1.0"-->
+<!--                    android:fontFamily="@font/ubuntu_light"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="12sp"-->
+<!--                    android:textColor="#254281"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="179dp"-->
+<!--                    android:layout_height="36dp"-->
+<!--                    android:src="@drawable/logoojk"-->
+<!--                    android:layout_alignParentRight="true"/>-->
+
+<!--            </RelativeLayout>-->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#01579b</color>
+    <color name="colorPrimaryDark">#002f6c</color>
+    <color name="colorAccent">#4f83cc</color>
+
+    <color name="bg_login_color">#EDEDED</color>
+    <color name="bg_color">#f0f0ef</color> <!-- pdf-->
+    <color name="bg_white_color">@android:color/white</color>
+
+    <color name="separator_color">#d9d9d9</color>
+    <color name="button_color">#1A457E</color>
+    <color name="button_color2">#254281</color> <!-- pdf-->
+    <color name="text_blue_color">#36A7DE</color>
+    <color name="text_blue_color2">#55aae3</color> <!-- pdf-->
+
+    <!--bottom menu-->
+    <color name="navigation_icon">#dae9f6</color>
+    <color name="navigation_text">#ffffff</color>
+
+    <!--mnc-->
+    <color name="mnc_lightgold_color">#F9E9AA</color>
+    <color name="mnc_gold_color">#AE8E36</color>
+    <color name="mnc_blue_color">#192C4D</color>
+
+    <!--dialog-->
+    <color name="dialog_background">#48000000</color>
+    <color name="dialog_title_text">#cc000000</color>
+    <color name="dialog_support_text">#90000000</color>
+    <color name="dialog_container">#FFFFFF</color>
+    <color name="dialog_btn_text">#5C1349</color>
+
+    <drawable name="transparent">#00000000</drawable>
+    <drawable name="error2">#B71C1C</drawable>
+
+    <!--image picker-->
+    <color name="profile_default_tint">#e0e0e0</color>
+
+</resources>
