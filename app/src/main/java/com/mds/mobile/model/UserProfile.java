@@ -14,6 +14,7 @@ public class UserProfile implements Serializable {
     private String longitude;
     private String latitude;
     private String userId;
+    private String clientName;
 
     public UserProfile(){
     }
@@ -104,5 +105,13 @@ public class UserProfile implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
+    public String getClientName() {
+        return clientName;
     }
 }

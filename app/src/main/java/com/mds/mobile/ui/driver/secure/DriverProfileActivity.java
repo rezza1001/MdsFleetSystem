@@ -75,6 +75,7 @@ public class DriverProfileActivity extends DriverBaseUi {
 //        loadProfileDefault();
 
         tvClientName = findViewById(R.id.tv_client_name);
+        tvClientName.setText("Profile");
         tvNasabah = findViewById(R.id.tv_name);
         tvAddress = findViewById(R.id.tv_address);
         tvCity = findViewById(R.id.tv_city);
@@ -116,11 +117,19 @@ public class DriverProfileActivity extends DriverBaseUi {
 
             Data data = resp.getData();
 
-            tvClientName.setText(data.getClientName());
-            tvNasabah.setText(data.getClientName());
+//            tvClientName.setText(data.getClientName());
+            tvNasabah.setText(data.getUserName());
             tvAddress.setText(data.getAddress());
-            tvCity.setText(data.getCity());
-            tvPhone.setText(data.getPhoneNo());
+            if (data.getBranch() != null){
+                tvCity.setText(data.getBranch());
+            }
+            if (data.getPhoneNo() == null || data.getPhoneNo().isEmpty()){
+                tvPhone.setText(data.getPhoneMobile());
+            }
+            else {
+                tvPhone.setText(data.getPhoneNo());
+            }
+
 //            tvHp.setText(data.getPhoneMobile());
 //            tvContact.setText(data.getContactPerson());
             tvEmail.setText(data.getEmail());

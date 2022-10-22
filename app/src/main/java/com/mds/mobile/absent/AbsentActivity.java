@@ -58,7 +58,6 @@ public class AbsentActivity extends DriverBaseUi {
 
     @Override
     protected void onMyCreate() {
-        findViewById(R.id.rvly_back).setOnClickListener(v -> onBackPressed());
 
         PermissionAccess.requestMain(this);
         FileProcessing.createFolder(this, Global.PATH_IMAGES);
@@ -97,15 +96,7 @@ public class AbsentActivity extends DriverBaseUi {
         card_absentOut.getChildAt(0).setVisibility(View.GONE);
         card_absentOut.getChildAt(1).setVisibility(View.VISIBLE);
 
-        TextView txvw_name = findViewById(R.id.txvw_name);
-        txvw_name.setText("-");
-        TextView txvw_mail = findViewById(R.id.txvw_mail);
-        txvw_mail.setText("-");
         userProfile = Global.userProfile;
-        if (userProfile != null){
-            txvw_name.setText(userProfile.getName());
-            txvw_mail.setText(userProfile.getPhoneNo() == null ? userProfile.getUserRole() : userProfile.getPhoneNo());
-        }
 
         initType();
         initTime();

@@ -2,20 +2,14 @@ package com.mds.mobile.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.textfield.TextInputEditText;
-
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
+import com.google.android.material.textfield.TextInputEditText;
 import com.mds.mobile.R;
 import com.mds.mobile.base.ErrorCode;
 import com.mds.mobile.base.Global;
-import com.mds.mobile.base.Shared;
 import com.mds.mobile.model.ApplicationError;
 import com.mds.mobile.model.UserProfile;
 import com.mds.mobile.module.dialog.MyDialog;
@@ -27,10 +21,17 @@ import com.mds.mobile.remote.entity.login.request.Data;
 import com.mds.mobile.remote.entity.login.request.Device;
 import com.mds.mobile.remote.entity.login.request.LoginRequestEntity;
 import com.mds.mobile.remote.entity.login.response.LoginResponseEntity;
+import com.mds.mobile.remote.entity.profile.request.GetProfileRequestEntity;
+import com.mds.mobile.remote.entity.profile.response.GetProfileResponseEntity;
+import com.mds.mobile.remote.service.ClientServiceClient;
 import com.mds.mobile.remote.service.LoginServiceClient;
 import com.mds.mobile.ui.client.secure.ClientDashboardActivity;
 import com.mds.mobile.ui.driver.secure.DriverDashboardActivity;
 import com.mds.mobile.util.GlobalHelper;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import retrofit2.Call;
 
 public class LoginActivity extends RetrofitBaseUi implements View.OnClickListener {
@@ -217,6 +218,37 @@ public class LoginActivity extends RetrofitBaseUi implements View.OnClickListene
 
     @Override
     protected void onSuccessReceived(Object entity) {
+        if (entity instanceof GetProfileResponseEntity) {
+            String eMessage;
+            UserProfile po = Global.userProfile;
+
+            GetProfileResponseEntity resp = (GetProfileResponseEntity) entity;
+            Global.userProfile.setClientName(resp.getData().getUserName());
+
+            if(GlobalHelper.C_USER_TYPE_CLIENT.equalsIgnoreCase(po.getUserRole())){
+                startActivity(new Intent(getApplicationContext(), ClientDashboardActivity.class));
+                // close login screen from history
+                finish();
+
+            } else if(GlobalHelper.C_USER_TYPE_COORDINATOR.equalsIgnoreCase(po.getUserRole())){
+                startActivity(new Intent(getApplicationContext(), DriverDashboardActivity.class));
+//                // close login screen from history
+                finish();
+            } else if(GlobalHelper.C_USER_TYPE_DRIVER.equalsIgnoreCase(po.getUserRole())){
+                startActivity(new Intent(getApplicationContext(), DriverDashboardActivity.class));
+//                // close login screen from history
+                finish();
+
+            } else {
+                MyLog.warn("ERROR : LoginActivity onSuccessReceived Data User Role is unknown : "+po.getUserRole());
+
+                eMessage = ErrorCode.C_ERROR_2008 + ". " + ErrorCode.C_ERROR_MESSAGE_2008;
+                MyDialog.showDialog1Btn(this, MyDialog.DIALOG_ID_ALERT ,getString(R.string.login),
+                        eMessage, getString(R.string.ok), this );
+            }
+            return;
+        }
+
         String eMessage = null;
         UserProfile po = null;
         LoginResponseEntity respEntity = (LoginResponseEntity) entity;
@@ -267,30 +299,20 @@ public class LoginActivity extends RetrofitBaseUi implements View.OnClickListene
                     eMessage, getString(R.string.ok), this );
 
         } else {
-
-            // client dashboard
-            if(GlobalHelper.C_USER_TYPE_CLIENT.equalsIgnoreCase(po.getUserRole())){
-                startActivity(new Intent(getApplicationContext(), ClientDashboardActivity.class));
-                // close login screen from history
-                finish();
-
-            } else if(GlobalHelper.C_USER_TYPE_COORDINATOR.equalsIgnoreCase(po.getUserRole())){
-                startActivity(new Intent(getApplicationContext(), DriverDashboardActivity.class));
-//                // close login screen from history
-                finish();
-            } else if(GlobalHelper.C_USER_TYPE_DRIVER.equalsIgnoreCase(po.getUserRole())){
-                startActivity(new Intent(getApplicationContext(), DriverDashboardActivity.class));
-//                // close login screen from history
-                finish();
-
-            } else {
-                MyLog.warn("ERROR : LoginActivity onSuccessReceived Data User Role is unknown : "+po.getUserRole());
-
-                eMessage = ErrorCode.C_ERROR_2008 + ". " + ErrorCode.C_ERROR_MESSAGE_2008;
-                MyDialog.showDialog1Btn(this, MyDialog.DIALOG_ID_ALERT ,getString(R.string.login),
-                        eMessage, getString(R.string.ok), this );
-            }
-
+            callJSONGetProfile();
         }
+    }
+
+    private void callJSONGetProfile() {
+        GetProfileRequestEntity ent = new GetProfileRequestEntity();
+        ent.setAuthorize("RT006");
+        ent.setRequestType("user_information");
+        ent.setUserCode(getUserProfile().getUserCode());
+        ent.setUserId(getUserProfile().getUserId());
+
+        ClientServiceClient serviceClient = ServiceGenerator.createService(ClientServiceClient.class);
+
+        Call<GetProfileResponseEntity> call = serviceClient.getProfile(ent);
+        call.enqueue(callback);
     }
 }

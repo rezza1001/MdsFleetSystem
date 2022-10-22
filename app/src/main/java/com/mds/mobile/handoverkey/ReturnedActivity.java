@@ -67,8 +67,6 @@ public class ReturnedActivity extends DriverBaseUi {
         TextView txvw_titleName = findViewById(R.id.txvw_titleName);
         txvw_titleName.setText("Penerima Kunci");
 
-        findViewById(R.id.rvly_back).setOnClickListener(v -> onBackPressed());
-
         txvw_date = findViewById(R.id.txvw_date);
         txvw_time = findViewById(R.id.txvw_time);
         spnr_car = findViewById(R.id.spnr_car);

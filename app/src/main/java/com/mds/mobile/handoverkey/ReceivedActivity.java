@@ -57,7 +57,6 @@ public class ReceivedActivity extends DriverBaseUi {
 
     @Override
     protected void onMyCreate() {
-        findViewById(R.id.rvly_back).setOnClickListener(v -> onBackPressed());
 
         txvw_date = findViewById(R.id.txvw_date);
         txvw_time = findViewById(R.id.txvw_time);

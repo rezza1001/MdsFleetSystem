@@ -1,12 +1,18 @@
 package com.mds.mobile.ui;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mds.mobile.R;
 import com.mds.mobile.model.ApplicationError;
 import com.mds.mobile.module.dialog.MyDialog;
@@ -26,10 +32,39 @@ import retrofit2.Call;
 public class OpenForgotPasswordActivity extends AppCompatActivity {
 //        extends RetrofitBaseUi implements View.OnClickListener{
 
+    private TextView txvw_description,txvw_description2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_forgot_password);
+        txvw_description = findViewById(R.id.txvw_description);
+        txvw_description2 = findViewById(R.id.txvw_description2);
+
+        loadData();
+    }
+
+    private void loadData(){
+        Loading.showLoading(this,"Please wait..");
+        txvw_description.setText("");
+        txvw_description2.setText("");
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("CONFIG").document("forgot_password");
+        docRef.get().addOnCompleteListener(task -> {
+            Loading.cancelLoading();
+            if (task.isSuccessful()) {
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
+                    txvw_description.setText(Html.fromHtml(document.getString("info1")));
+                    txvw_description2.setText(Html.fromHtml(document.getString("info2")));
+
+                } else {
+                    Toast.makeText(this,"No data", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this,"Failed "+task.getException(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 //    Button btnSave;

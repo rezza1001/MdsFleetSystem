@@ -14,7 +14,7 @@
     <string name="text_forgotpwd_succeed">Password berhasil diubah.</string>
 
     <!--login-->
-    <string name="username">Email or Username</string>
+    <string name="username">No. Telephone</string>
     <string name="password">Password</string>
     <string name="hubungi_kami">Hubungi Kami</string>
     <string name="lupa_password">Lupa Password</string>
@@ -85,9 +85,9 @@
     <string name="title_notification">Notification</string>
 
     <string name="e_device_error_title">Kesalahan Perangkat</string>
-    <string name="e_device_error_message">Aplikasi MNC Leasing Mobile tidak mendukung\nperangkat root.</string>
-    <string name="text_forgot_password">Untuk memulihkan password Anda, silakan menghubungi unit Customer Care MNC Leasing di nomor <b>021-3910993 ext 1</b>.</string>
-    <string name="text_forgot_password2">Petugas kami akan dengan senang hati membantu Anda.</string>
+    <string name="e_device_error_message">Aplikasi Mobile tidak mendukung\nperangkat root.</string>
+    <string name="text_forgot_password">info1 <b>info2</b>.</string>
+    <string name="text_forgot_password2">info3</string>
 
     <string name="text_notif_cancel">Anda yakin akan membatalkan transaksi ini ?</string>
     <string name="text_notif_save">Anda yakin akan men-submit data ?</string>

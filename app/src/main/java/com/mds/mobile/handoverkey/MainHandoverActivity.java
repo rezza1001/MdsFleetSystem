@@ -49,7 +49,6 @@ public class MainHandoverActivity extends DriverBaseUi {
         PermissionAccess.requestMain(this);
         FileProcessing.createFolder(this, Global.PATH_IMAGES);
         FileProcessing.clearImage(this,Global.PATH_IMAGES);
-        findViewById(R.id.rvly_back).setOnClickListener(v -> onBackPressed());
 
         txvw_date = findViewById(R.id.txvw_date);
         txvw_time = findViewById(R.id.txvw_time);
@@ -71,15 +70,8 @@ public class MainHandoverActivity extends DriverBaseUi {
         txvw_car2.setText("-");
         txvw_receiver.setText("-");
         mStatus = HandoverStatus.NOT_RECEIVED;
-        TextView txvw_name = findViewById(R.id.txvw_name);
-        txvw_name.setText("-");
-        TextView txvw_mail = findViewById(R.id.txvw_mail);
-        txvw_mail.setText("-");
+
         userProfile = Global.userProfile;
-        if (userProfile != null){
-            txvw_name.setText(userProfile.getName());
-            txvw_mail.setText(userProfile.getPhoneNo() == null ? userProfile.getUserRole() : userProfile.getPhoneNo());
-        }
 
         if (isTimeAutomatic()){
             runTimer();

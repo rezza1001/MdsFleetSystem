@@ -26,6 +26,12 @@ public class Data {
     @SerializedName("contact_person")
     @Expose
     private String contactPerson;
+    @SerializedName("user_name")
+    @Expose
+    private String userName;
+    @SerializedName("branch")
+    @Expose
+    private String branch;
 
     public String getClientName() {
         return clientName;
@@ -83,4 +89,19 @@ public class Data {
         this.contactPerson = contactPerson;
     }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
 }

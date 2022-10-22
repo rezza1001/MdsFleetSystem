@@ -6,93 +6,18 @@
     android:layout_height="match_parent">
 
 
-    <RelativeLayout
-        android:id="@+id/rvly_header"
-        android:background="@color/colorPrimary"
+
+    <include
+        android:id="@+id/lay_header"
+        layout="@layout/header_drivsecure_ui"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_vertical"
-            android:fontFamily="@font/ubuntu_light"
-            android:text="ABSENSI"
-            android:textColor="@color/bg_white_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <RelativeLayout
-            android:id="@+id/rvly_back"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrow_back_black_24dp"
-                app:tint="@color/bg_white_color" />
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/rvly_employee"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/profile_background_circle"
-            android:layout_marginStart="20dp"
-            android:layout_below="@id/rvly_back"
-            android:layout_width="45dp"
-            android:layout_height="45dp">
-            <ImageView
-                android:layout_margin="8dp"
-                android:src="@drawable/employee_default"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </RelativeLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_marginStart="15dp"
-            android:layout_alignTop="@+id/rvly_employee"
-            android:layout_toEndOf="@+id/rvly_employee"
-            android:layout_alignBottom="@+id/rvly_employee"
-            android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/txvw_name"
-                android:fontFamily="@font/ubuntu_light"
-                android:textColor="@color/bg_white_color"
-                android:textSize="15sp"
-                android:text="Name Here"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/txvw_mail"
-                android:textSize="14sp"
-                android:fontFamily="@font/ubuntu_light"
-                android:textColor="#80ffffff"
-                android:text="mail@gmail.com"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-    </RelativeLayout>
+        android:layout_height="wrap_content" />
 
     <RelativeLayout
         android:id="@+id/rvly_status"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:layout_below="@+id/rvly_header"
+        android:layout_below="@+id/lay_header"
         android:background="#00c853">
 
         <LinearLayout
@@ -136,6 +61,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:text="Absensi"
+                android:textColor="@color/text_blue_color"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/ubuntu_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_marginTop="10dp"
@@ -155,7 +91,7 @@
                     <TextView
                         android:fontFamily="@font/ubuntu_light"
                         android:textStyle="bold"
-                        android:text="Infromasi Absen"
+                        android:text="Informasi Absen"
                         android:textSize="14sp"
                         android:textColor="@color/text_blue_color"
                         android:layout_width="wrap_content"

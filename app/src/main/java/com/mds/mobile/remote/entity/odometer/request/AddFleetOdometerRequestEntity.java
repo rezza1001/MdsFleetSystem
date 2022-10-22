@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 import com.mds.mobile.remote.entity.BaseEntity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class AddFleetOdometerRequestEntity extends BaseEntity {
 
     @SerializedName("request_type")
@@ -72,5 +75,20 @@ public class AddFleetOdometerRequestEntity extends BaseEntity {
 
     public void setPhoto1(String photo1) {
         this.photo1 = photo1;
+    }
+
+    public JSONObject toJson(){
+        JSONObject jo = new JSONObject();
+        try {
+            jo.put("request_type", requestType);
+            jo.put("authorize", authorize);
+            jo.put("user_code", userCode);
+            jo.put("fleet_id", fleetId);
+            jo.put("fleet_odometer", fleetOdometer);
+            jo.put("photo_1", photo1);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jo;
     }
 }

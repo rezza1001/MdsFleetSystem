@@ -1,18 +1,32 @@
 package com.mds.mobile.ui;
 
+import android.util.Log;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.ConnectException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 
 import com.mds.mobile.base.ErrorCode;
 import com.mds.mobile.base.Global;
 import com.mds.mobile.model.ApplicationError;
+import com.mds.mobile.model.UserProfile;
 import com.mds.mobile.remote.entity.BaseResponseEntity;
 import com.mds.mobile.remote.entity.ErrorResponse;
+import com.mds.mobile.remote.post.MyDevice;
 import com.mds.mobile.util.GlobalHelper;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +48,7 @@ public abstract class RetrofitBaseUi extends BaseUi {
             MyLog.info("json onResponse response.message(): "+response.message());
 
             ApplicationError appError=null;
+            String responseBody = "";
 
             if(response.isSuccessful()) {
                 MyLog.info("json onResponse response.body() " + response.body().toString());
@@ -61,6 +76,7 @@ public abstract class RetrofitBaseUi extends BaseUi {
 //                    Gson gson = new GsonBuilder().create();
 //                    errResp= gson.fromJson(response.errorBody().string(),BaseResponseEntity .class);
 
+                    responseBody = strErrorBody;
                     JSONObject jObjError = new JSONObject(strErrorBody);
 
                     MyLog.info("errResp.getResponseCode "+jObjError.toString());
@@ -79,28 +95,17 @@ public abstract class RetrofitBaseUi extends BaseUi {
                 } catch (Exception e) {
                     MyLog.error("json onResponse isNotSuccessful exception occur while trying to convert errorBody ", e);
                     appError = GlobalHelper.constructError(ErrorCode.C_ERROR_2004, ErrorCode.C_ERROR_MESSAGE_2004);
+                    sendError(e,responseBody);
                 }
             } else {
                 MyLog.warn("json onResponse isNotSuccessful errorBody() is null");
                 appError = GlobalHelper.constructError(ErrorCode.C_ERROR_2005, ErrorCode.C_ERROR_MESSAGE_2005);
+                sendError(null,"json onResponse isNotSuccessful errorBody() is null");
             }
 
             if( appError == null ){
                 onSuccessReceived(response.body());
             } else {
-
-                // is session Id invalid
-                // logout and redirect to login screen
-//                if(isSessionIdInvalid(appError.getResponseCode())){
-//
-//                    MyLog.info("SessionId is Invalid. Redirect to Login Screen");
-//
-//                    Loading.cancelLoading();
-//                    logoutToLoginScreen();
-//
-//                    return;
-//                }
-
                 onErrorReceived(appError);
             }
 
@@ -113,49 +118,70 @@ public abstract class RetrofitBaseUi extends BaseUi {
             String responseCode=null;
             String responseMessage=null;
 
-            MyLog.info("onfailure. " +t.toString());
+            MyLog.info("onfailure. " +t.getMessage());
 
             if(t instanceof ConnectException){
                 responseCode = ErrorCode.C_ERROR_2001;
                 responseMessage = ErrorCode.C_ERROR_MESSAGE_2001;
+                sendError(null,responseMessage);
             }
-
-            // debug
-//            ApplicationError appError = new ApplicationError("d2005","d2005.");
-//            ApplicationError appError = new ApplicationError("d2005", Global.C_ERROR_MESSAGE_2003);
             ApplicationError appError = null;
             if(responseCode!=null){
                 appError = GlobalHelper.constructError(responseCode, responseMessage);
             } else {
                 appError = GlobalHelper.constructError(ErrorCode.C_ERROR_2002,  ErrorCode.C_ERROR_MESSAGE_2002);
-//                appError = GlobalHelper.constructError("f2006", "f2006." + t.getMessage());
             }
 
-
-            // is session Id invalid
-            // logout and redirect to login screen
-//            if(isSessionIdInvalid(appError.getResponseCode())){
-//
-//                MyLog.info("SessionId is Invalid. Redirect to Login Screen");
-//
-//                Loading.cancelLoading();
-//                logoutToLoginScreen();
-//
-//                return;
-//            } else {
                 onErrorReceived(appError);
-//            }
-//
-//            MyLog.info("WHY HERE ??");
 
         }
     };
 
-//    boolean isSessionIdInvalid(String responseCode){
-//        if( ("s"+Global.C_ERR_CODE_INVALID_SESSION_ID).equalsIgnoreCase(responseCode)){
-//            return true;
-//        }
-//        return false;
-//    }
+    public void sendError(Exception e, String responseData){
+        UserProfile userProfile = Global.userProfile;
+        MyDevice device = new MyDevice(getApplicationContext());
+        JSONObject joDevice = new JSONObject();
+        try {
+            joDevice.put("name",device.getDeviceName());
+            joDevice.put("version",device.getVersion());
+            joDevice.put("os",device.getOs());
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
+
+        DateFormat format = new SimpleDateFormat("dd/MMM/yyyy HH:mm:ss", Locale.getDefault());
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String,Object> data = new HashMap<>();
+//        data.put("apiUrl", mainUrl +""+ apiUrl);
+//        data.put("param", mData.toString());
+        data.put("user_id", userProfile.getUserId());
+        data.put("username", userProfile.getUsername());
+        data.put("versionApps",device.getVersion());
+        data.put("device",joDevice.toString());
+        data.put("time", format.format(new Date()));
+        data.put("timemillis", System.currentTimeMillis());
+        data.put("date", format.format(new Date()));
+        String response = "-";
+        if (e.getMessage() != null){
+            if (Objects.requireNonNull(e.getMessage()).length() > 100){
+                response = e.getMessage().substring(0,100);
+            }
+            else {
+                response = e.getMessage();
+            }
+        }
+        if (responseData.length() > 500){
+            responseData = responseData.substring(0,500);
+        }
+
+        Calendar calendar = Calendar.getInstance();
+        data.put("error", response);
+        data.put("response", responseData);
+        db.collection("DBUG_"+calendar.get(Calendar.YEAR)+"_"+calendar.get(Calendar.MONTH))
+                .add(data)
+                .addOnSuccessListener(documentReference -> Log.d("RetrofitBaseUi", "DocumentSnapshot added with ID: " + documentReference.getId()))
+                .addOnFailureListener(e1 -> Log.w("RetrofitBaseUi", "Error adding document", e1));
+    }
+
 
 }

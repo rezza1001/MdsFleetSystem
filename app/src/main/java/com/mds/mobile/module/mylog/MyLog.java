@@ -23,14 +23,14 @@ public class MyLog {
 
     public static void warn( String p_strMsg )
     {
-//        String l_strMsg = "** Warn ** " + p_strMsg;
-//        Log.w(C_TAB_LOG, l_strMsg);
+        String l_strMsg = "** Warn ** " + p_strMsg;
+        Log.w(C_TAB_LOG, l_strMsg);
     }
 
     public static void error( String p_strMsg, Throwable tr )
     {
-//        String l_strMsg = "** Error ** " + p_strMsg;
-//        Log.e(C_TAB_LOG, l_strMsg, tr);
+        String l_strMsg = "** Error ** " + p_strMsg;
+        Log.e(C_TAB_LOG, l_strMsg, tr);
     }
 
 }

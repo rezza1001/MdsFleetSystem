@@ -71,6 +71,7 @@
                 />
 
             <TextView
+                android:id="@+id/txvw_call"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu_light"
@@ -92,6 +93,7 @@
                 />
 
             <TextView
+                android:id="@+id/txvw_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu_light"
@@ -113,6 +115,7 @@
                 />
 
             <TextView
+                android:id="@+id/txvw_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu_light"
@@ -139,6 +142,7 @@
             />
 
         <TextView
+            android:id="@+id/txvw_work"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="08.30 s/d 17.30 WIB"

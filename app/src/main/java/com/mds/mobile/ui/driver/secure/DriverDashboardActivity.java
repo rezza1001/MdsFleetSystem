@@ -1,5 +1,6 @@
 package com.mds.mobile.ui.driver.secure;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -34,11 +35,12 @@ public class DriverDashboardActivity extends DriverBaseUi implements View.OnClic
         return null;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onMyCreate() {
 
         tvUsername = findViewById(R.id.tvUsername);
-//        tvUsername.setText("Hi, "+getUserProfile().getName());
+        tvUsername.setText("Hi, "+getUserProfile().getName());
 
         ivKm = findViewById(R.id.iv_km);
         ivService = findViewById(R.id.iv_service);

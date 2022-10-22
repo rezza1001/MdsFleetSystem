@@ -71,7 +71,6 @@ public class VerificationActivity extends DriverBaseUi {
         btn_verification    = findViewById(R.id.btn_verification);
         edtx_note           = findViewById(R.id.edtx_note);
         checkbox_usedCar    = findViewById(R.id.checkbox_usedCar);
-        findViewById(R.id.rvly_back).setOnClickListener(v -> onBackPressed());
         checkbox_usedCar.setVisibility(View.GONE);
         imvw_chooser.post(() -> {
            int height = imvw_chooser.getHeight();

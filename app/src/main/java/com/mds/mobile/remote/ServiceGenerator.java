@@ -1,5 +1,8 @@
 package com.mds.mobile.remote;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -50,15 +53,16 @@ public class ServiceGenerator {
 
     private static OkHttpClient.Builder httpClient =
             new OkHttpClient.Builder()
-//                    .addInterceptor(getInterceptor())
+                    .addInterceptor(getInterceptor())
                     .connectTimeout(30, TimeUnit.SECONDS)
                     .writeTimeout(30, TimeUnit.SECONDS)
                     .readTimeout(60, TimeUnit.SECONDS);
 
-    private static Retrofit.Builder builder =
-            new Retrofit.Builder()
+    private static Retrofit.Builder builder =   new Retrofit.Builder()
                     .baseUrl(API_BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create());
+                    .addConverterFactory(GsonConverterFactory.create(new GsonBuilder() .setLenient() .create()));
+
+
 
     private static Retrofit retrofit = builder.client(httpClient.build()).build();
 

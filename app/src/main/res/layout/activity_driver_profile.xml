@@ -168,7 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ubuntu_light"
-                    android:text="Kota"
+                    android:text="Cabang Penempatan"
                     android:textStyle="bold"
                     android:textSize="14sp"
                     android:textColor="@color/text_blue_color"
