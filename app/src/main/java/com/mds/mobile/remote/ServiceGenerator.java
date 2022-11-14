@@ -27,7 +27,7 @@ public class ServiceGenerator {
 //        public static final String API_URL = "https://cmapp.mncleasing.com/doc/api/";
 //    public static final String API_SECRET_KEY = "FtMQVYZ-4#z26gzBY#_@y8RzP";
 
-    public static final String API_URL = "http://103.41.205.42/FleetMgmtSystem/api-middleware/";
+    public static final String API_URL = "https://mdstrans.co.id/api-middleware/";
     public static final String API_SECRET_KEY = "!@%23123qweASDzxc";
     public static final String API_SECRET_KEY2 = "!@#123qweASDzxc";
 
