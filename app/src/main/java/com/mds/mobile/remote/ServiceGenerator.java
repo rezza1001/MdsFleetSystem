@@ -17,9 +17,9 @@ public class ServiceGenerator {
 
 
 //    public static final String API_BASE_URL = "https://cmapp.mncleasing.com/middleware/core-services/";
-    public static final String API_BASE_URL = "https://dev.rentas.co.id/FleetMgmtSystem/middleware/core-services/";
 //    public static final String API_BASE_URL = " https://dev.rentas.co.id/mncleasing-carservices/production/middleware/";
     public static final String API_PHOTO_URL = "https://dev.rentas.co.id/FleetMgmtSystem/middleware/";
+    public static final String API_BASE_URL = "https://mdstrans.co.id/middleware/core-services/";
 
 //    public static final String API_URL = "https://dev.rentas.co.id/mncleasing-carservices/production/middleware/";
 //    public static final String API_SECRET_KEY = "FtMQVYZ-4#z26gzBY#_@y8RzP";

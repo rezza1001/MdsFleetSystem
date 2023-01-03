@@ -180,7 +180,7 @@ public class LoginActivity extends RetrofitBaseUi implements View.OnClickListene
 //        username = "08126656901";
 
         // adi. 21-04-2020. md5
-        password = md5(password);
+//        password = md5(password);
 
 //        MyLog.info("LoginActivity password "+password);
 
