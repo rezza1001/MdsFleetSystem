@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.mds.mobile.R;
 import com.mds.mobile.base.Global;
 import com.mds.mobile.base.Shared;
+import com.mds.mobile.database.AccountDB;
 import com.mds.mobile.module.dialog.IMyDialog;
 import com.mds.mobile.module.dialog.MyDialog;
 import com.mds.mobile.util.RootUtil;
@@ -60,8 +61,12 @@ public class SplashScreenActivity extends AppCompatActivity implements IMyDialog
 //            if(po == null){
 
 //                Shared.clear();
-                Global.clearGlobalData();
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
+        AccountDB accountDB = new AccountDB();
+        accountDB.clearData(this);
+
+        Global.clearGlobalData();
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 //
 //            } else {
 //                Global.userProfile = po;

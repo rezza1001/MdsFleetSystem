@@ -65,7 +65,7 @@ public class ReceivedActivity extends DriverBaseUi {
         edtx_name = findViewById(R.id.edtx_name);
 
         findViewById(R.id.btn_verification).setOnClickListener(v -> verification());
-        userProfile = Global.userProfile;
+        userProfile = getUserProfile();
         runTimer();
         initCar();
 

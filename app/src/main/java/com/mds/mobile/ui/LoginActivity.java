@@ -10,6 +10,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.mds.mobile.R;
 import com.mds.mobile.base.ErrorCode;
 import com.mds.mobile.base.Global;
+import com.mds.mobile.database.AccountDB;
 import com.mds.mobile.model.ApplicationError;
 import com.mds.mobile.model.UserProfile;
 import com.mds.mobile.module.dialog.MyDialog;
@@ -220,27 +221,31 @@ public class LoginActivity extends RetrofitBaseUi implements View.OnClickListene
     protected void onSuccessReceived(Object entity) {
         if (entity instanceof GetProfileResponseEntity) {
             String eMessage;
-            UserProfile po = Global.userProfile;
+
+            AccountDB accountDB = new AccountDB();
+            accountDB.loadData(this);
+
 
             GetProfileResponseEntity resp = (GetProfileResponseEntity) entity;
-            Global.userProfile.setClientName(resp.getData().getUserName());
+            accountDB.clientName = resp.getData().getUserName();
+            accountDB.insert(this);
 
-            if(GlobalHelper.C_USER_TYPE_CLIENT.equalsIgnoreCase(po.getUserRole())){
+            if(GlobalHelper.C_USER_TYPE_CLIENT.equalsIgnoreCase(accountDB.role)){
                 startActivity(new Intent(getApplicationContext(), ClientDashboardActivity.class));
                 // close login screen from history
                 finish();
 
-            } else if(GlobalHelper.C_USER_TYPE_COORDINATOR.equalsIgnoreCase(po.getUserRole())){
+            } else if(GlobalHelper.C_USER_TYPE_COORDINATOR.equalsIgnoreCase(accountDB.role)){
                 startActivity(new Intent(getApplicationContext(), DriverDashboardActivity.class));
 //                // close login screen from history
                 finish();
-            } else if(GlobalHelper.C_USER_TYPE_DRIVER.equalsIgnoreCase(po.getUserRole())){
+            } else if(GlobalHelper.C_USER_TYPE_DRIVER.equalsIgnoreCase(accountDB.role)){
                 startActivity(new Intent(getApplicationContext(), DriverDashboardActivity.class));
 //                // close login screen from history
                 finish();
 
             } else {
-                MyLog.warn("ERROR : LoginActivity onSuccessReceived Data User Role is unknown : "+po.getUserRole());
+                MyLog.warn("ERROR : LoginActivity onSuccessReceived Data User Role is unknown : "+accountDB.role);
 
                 eMessage = ErrorCode.C_ERROR_2008 + ". " + ErrorCode.C_ERROR_MESSAGE_2008;
                 MyDialog.showDialog1Btn(this, MyDialog.DIALOG_ID_ALERT ,getString(R.string.login),
@@ -266,14 +271,24 @@ public class LoginActivity extends RetrofitBaseUi implements View.OnClickListene
             MyLog.info("LoginActivity onSuccessReceived data getUserRole : "+data.getUserRole());
             MyLog.info("LoginActivity onSuccessReceived data getUserId : "+data.getUserId());
 
-            po = new UserProfile();
-            po.setName(data.getName());
-            po.setUserCode(data.getUserId());
-            po.setUserRole(data.getUserRole());
-            po.setUsername(username);
-            po.setUserId(data.getUserId());
+            AccountDB accountDB = new AccountDB();
+            accountDB.userId = data.getUserId();
+            accountDB.username = username;
+            accountDB.password = password;
+            accountDB.role = data.getUserRole();
+            accountDB.name = data.getName();
+            accountDB.code = data.getUserId();
+            accountDB.insert(this);
 
-            Global.userProfile = po;
+//            po = new UserProfile();
+//            po.setName(data.getName());
+//            po.setUserCode(data.getUserId());
+//            po.setUserRole(data.getUserRole());
+//            po.setUsername(username);
+//            po.setUserId(data.getUserId());
+//
+//            Global.userProfile = po;
+
             // save login session
 //            try {
 //                Shared.createLoginSession(po);

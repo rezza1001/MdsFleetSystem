@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.mds.mobile.R;
 import com.mds.mobile.base.Global;
 import com.mds.mobile.base.Shared;
+import com.mds.mobile.database.AccountDB;
 
 public abstract class BaseSecureUi extends RetrofitBaseUi implements View.OnClickListener {
 
@@ -57,6 +58,10 @@ public abstract class BaseSecureUi extends RetrofitBaseUi implements View.OnClic
                 loginScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 loginScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                Shared.clear();
+
+                AccountDB accountDB = new AccountDB();
+                accountDB.clearData(BaseSecureUi.this);
+                
                 Global.clearGlobalData();
                 startActivity(loginScreen);
 

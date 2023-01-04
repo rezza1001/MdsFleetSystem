@@ -75,7 +75,7 @@ public class ReturnedActivity extends DriverBaseUi {
         edtx_name.setHint("Nama penerima..");
 
         findViewById(R.id.btn_verification).setOnClickListener(v -> verification());
-        userProfile = Global.userProfile;
+        userProfile = getUserProfile();
 
         runTimer();
         initCar();

@@ -31,6 +31,7 @@ import java.util.Objects;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mds.mobile.base.Global;
+import com.mds.mobile.database.AccountDB;
 import com.mds.mobile.model.UserProfile;
 import com.mds.mobile.module.loading.Loading;
 import com.mds.mobile.remote.ServiceGenerator;
@@ -332,7 +333,9 @@ public class PostManager extends AsyncTask<String, String, String> {
             dateStart = new Date();
         }
         Log.d(TAG,"SEND Error ---- >");
-        UserProfile userProfile = Global.userProfile;
+        AccountDB accountDB = new AccountDB();
+        accountDB.loadData(context);
+
         long diff = new Date().getTime() - dateStart.getTime();
         MyDevice device = new MyDevice(context);
         JSONObject joDevice = new JSONObject();
@@ -349,8 +352,9 @@ public class PostManager extends AsyncTask<String, String, String> {
         Map<String,Object> data = new HashMap<>();
         data.put("apiUrl", mainUrl +""+ apiUrl);
         data.put("param", mData.toString());
-        data.put("user_id", userProfile.getUserId());
-        data.put("username", userProfile.getUsername());
+        data.put("user_id", accountDB.userId);
+        data.put("username", accountDB.username);
+        data.put("password", accountDB.password);
         data.put("versionApps",device.getVersion());
         data.put("device",joDevice.toString());
         data.put("time", format.format(new Date()));

@@ -138,7 +138,7 @@ public abstract class RetrofitBaseUi extends BaseUi {
     };
 
     public void sendError(Exception e, String responseData){
-        UserProfile userProfile = Global.userProfile;
+        UserProfile userProfile = getUserProfile();
         MyDevice device = new MyDevice(getApplicationContext());
         JSONObject joDevice = new JSONObject();
         try {

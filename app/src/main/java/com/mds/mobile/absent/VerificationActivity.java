@@ -107,7 +107,7 @@ public class VerificationActivity extends DriverBaseUi {
     }
 
     public void init(){
-        userProfile = Global.userProfile;
+        userProfile = getUserProfile();
         absentParam = (AbsentParam) getIntent().getSerializableExtra("data");
 
         imvw_chooser.setPath(Global.PATH_IMAGES);

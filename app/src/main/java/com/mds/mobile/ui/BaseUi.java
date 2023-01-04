@@ -7,6 +7,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.mds.mobile.base.Global;
 import com.mds.mobile.base.Shared;
+import com.mds.mobile.database.AccountDB;
 import com.mds.mobile.model.UserProfile;
 import com.mds.mobile.module.dialog.IMyDialog;
 import com.mds.mobile.module.dialog.MyDialog;
@@ -95,24 +96,15 @@ public abstract class BaseUi extends AppCompatActivity implements IMyDialog {
     }
 
     protected UserProfile getUserProfile(){
+        AccountDB accountDB = new AccountDB();
+        accountDB.loadData(this);
 
-        UserProfile temp = Global.userProfile;
-
-        // something wrong, static userprofile gone
-        // return login
-        if(temp == null) {
-
-//            Global.startAppIniData(this);
-
-            Intent loginScreen = new Intent(getApplicationContext(), LoginActivity.class)
-                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-            loginScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            loginScreen.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(loginScreen);
-            // todo. perlu ini ndak ya ?
-            this.finish();
-        }
+        UserProfile temp = new UserProfile();
+        temp.setName(accountDB.name);
+        temp.setUserCode(accountDB.code);
+        temp.setUserRole(accountDB.role);
+        temp.setUsername(accountDB.username);
+        temp.setUserId(accountDB.userId);
 
         return temp;
     }

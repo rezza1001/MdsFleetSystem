@@ -96,7 +96,7 @@ public class AbsentActivity extends DriverBaseUi {
         card_absentOut.getChildAt(0).setVisibility(View.GONE);
         card_absentOut.getChildAt(1).setVisibility(View.VISIBLE);
 
-        userProfile = Global.userProfile;
+        userProfile = getUserProfile();
 
         initType();
         initTime();

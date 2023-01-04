@@ -71,7 +71,7 @@ public class MainHandoverActivity extends DriverBaseUi {
         txvw_receiver.setText("-");
         mStatus = HandoverStatus.NOT_RECEIVED;
 
-        userProfile = Global.userProfile;
+        userProfile = getUserProfile();
 
         if (isTimeAutomatic()){
             runTimer();
