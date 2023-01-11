@@ -39,6 +39,7 @@ public abstract class RetrofitBaseUi extends BaseUi {
     protected abstract void onErrorReceived(ApplicationError applicationError);
     protected abstract void onSuccessReceived(Object entity);
 
+
     protected Callback callback = new Callback<Object>() {
 
         @Override
@@ -123,14 +124,21 @@ public abstract class RetrofitBaseUi extends BaseUi {
             if(t instanceof ConnectException){
                 responseCode = ErrorCode.C_ERROR_2001;
                 responseMessage = ErrorCode.C_ERROR_MESSAGE_2001;
-                sendError(null,responseMessage);
+
             }
             ApplicationError appError = null;
             if(responseCode!=null){
                 appError = GlobalHelper.constructError(responseCode, responseMessage);
             } else {
                 appError = GlobalHelper.constructError(ErrorCode.C_ERROR_2002,  ErrorCode.C_ERROR_MESSAGE_2002);
+                responseMessage = " onFailure exception occur";
+                if (t.getMessage() != null){
+                    responseMessage = t.getMessage();
+                }
+                sendError(null,responseMessage);
             }
+
+
 
                 onErrorReceived(appError);
 
