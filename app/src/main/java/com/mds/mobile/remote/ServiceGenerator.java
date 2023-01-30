@@ -39,6 +39,7 @@ public class ServiceGenerator {
     public static final String HANDOVER_TAKING = "?page=Key-Taking";
     public static final String HANDOVER_RETURN = "?page=Key-Return";
     public static final String HANDOVER_STATUS = "?page=Key-Status";
+    public static final String CHECK_VERSION = "?page=Get-Version&x_rentas_key=!@%23123qweASDzxc";
 
 
 

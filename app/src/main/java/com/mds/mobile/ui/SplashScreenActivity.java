@@ -1,80 +1,85 @@
 package com.mds.mobile.ui;
 
 import android.content.Intent;
-import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.mds.mobile.R;
+import com.mds.mobile.absent.ErrorDialog;
 import com.mds.mobile.base.Global;
-import com.mds.mobile.base.Shared;
 import com.mds.mobile.database.AccountDB;
 import com.mds.mobile.module.dialog.IMyDialog;
 import com.mds.mobile.module.dialog.MyDialog;
+import com.mds.mobile.remote.ServiceGenerator;
+import com.mds.mobile.remote.post.ErrorCode;
+import com.mds.mobile.remote.post.MyDevice;
+import com.mds.mobile.remote.post.PostManager;
 import com.mds.mobile.util.RootUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SplashScreenActivity extends AppCompatActivity implements IMyDialog {
 
     private static int SPLASH_TIME_OUT = 2000;
 
+    private MyDevice myDevice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        myDevice = new MyDevice(this);
 
-        // init sharedPreference
-//        Global.startAppIniData(SplashScreenActivity.this);
-
-        boolean isRooted = RootUtil.isRootedDevice(this);
+//        boolean isRooted = RootUtil.isRootedDevice(this);
+        boolean isRooted = false;
 
         if(isRooted){
             MyDialog.showDialog1Btn(this, MyDialog.DIALOG_ID_3, getString(R.string.e_device_error_title),
                     getString(R.string.e_device_error_message),
                     getString(R.string.close), this);
         } else {
-            new Handler().postDelayed(new Runnable() {
-
-                /*
-                 * Showing splash screen with a timer. This will be useful when you
-                 * want to show case your app logo / company
-                 */
-
-                @Override
-                public void run() {
-
-                    nextActivity();
-
-                    finish();
-                }
-            }, SPLASH_TIME_OUT);
+            loadVersion();
         }
     }
 
     private void nextActivity(){
-
-
-        // todo. dummy
-//        Shared.logoutUser();
-
-//        if(Shared.isLoggedIn()){
-//            UserProfile po = Shared.getUserProfile();
-//            if(po == null){
-
-//                Shared.clear();
-
         AccountDB accountDB = new AccountDB();
         accountDB.clearData(this);
 
         Global.clearGlobalData();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-//
-//            } else {
-//                Global.userProfile = po;
-//                startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
-//            }
-//        } else {
-//            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-//        }
+    }
+
+    private void loadVersion(){
+        PostManager post = new PostManager(this, ServiceGenerator.CHECK_VERSION);
+        post.addHeaderParam("x_rentas_key",ServiceGenerator.API_SECRET_KEY);
+        post.exGet();
+        post.setOnReceiveListener((obj, code, message) -> {
+            if (code == ErrorCode.OK_200){
+                try {
+                    JSONObject data = obj.getJSONObject("version");
+                    int versionCode = data.getInt("code");
+
+                    if (myDevice.getVersionCode() > versionCode){
+                        startActivity(new Intent(SplashScreenActivity.this, UpdateAppsActivity.class));
+                        SplashScreenActivity.this.finish();
+                    }
+                    else {
+                        nextActivity();
+                        SplashScreenActivity.this.finish();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                ErrorDialog dialog = new ErrorDialog(this);
+                dialog.show("System Bermasalah","Silahkan coba beberapa saat lagi atau hubungi call center");
+                dialog.setOnFinishListener(SplashScreenActivity.this::finish);
+            }
+        });
     }
 
     @Override

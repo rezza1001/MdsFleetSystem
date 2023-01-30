@@ -1,5 +1,6 @@
 package com.mds.mobile.database;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -49,6 +50,7 @@ public class AccountDB extends MasterDB {
         return TABLE_NAME;
     }
 
+    @SuppressLint("Range")
     @Override
     protected AccountDB build(Cursor res) {
         AccountDB jp = new AccountDB();
@@ -62,6 +64,7 @@ public class AccountDB extends MasterDB {
         return jp;
     }
 
+    @SuppressLint("Range")
     @Override
     protected void buildSingle(Cursor res) {
         this.code = res.getString(res.getColumnIndex(CODE));

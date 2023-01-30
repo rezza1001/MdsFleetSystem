@@ -13,7 +13,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
-    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
 
@@ -141,7 +142,8 @@
             android:screenOrientation="nosensor" />
         <activity
             android:name=".ui.SplashScreenActivity"
-            android:screenOrientation="nosensor">
+            android:screenOrientation="nosensor"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -150,6 +152,9 @@
         </activity>
         <activity
             android:name=".ui.imagepicker.ImagePickerActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.UpdateAppsActivity"
             android:screenOrientation="nosensor" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
