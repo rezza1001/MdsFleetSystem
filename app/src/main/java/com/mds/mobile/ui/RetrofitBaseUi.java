@@ -33,6 +33,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import com.mds.mobile.module.mylog.MyLog;
+import com.mds.mobile.util.NetworkUtil;
 
 public abstract class RetrofitBaseUi extends BaseUi {
 
@@ -162,6 +163,7 @@ public abstract class RetrofitBaseUi extends BaseUi {
         Map<String,Object> data = new HashMap<>();
 //        data.put("apiUrl", mainUrl +""+ apiUrl);
 //        data.put("param", mData.toString());
+        data.put("network", NetworkUtil.getConnection(getApplication()).toStringData());
         data.put("user_id", userProfile.getUserId());
         data.put("username", userProfile.getUsername());
         data.put("versionApps",device.getVersion());
@@ -170,16 +172,19 @@ public abstract class RetrofitBaseUi extends BaseUi {
         data.put("timemillis", System.currentTimeMillis());
         data.put("date", format.format(new Date()));
         String response = "-";
-        if (e.getMessage() != null){
-            if (Objects.requireNonNull(e.getMessage()).length() > 100){
-                response = e.getMessage().substring(0,100);
+
+        if (e != null){
+            if (e.getMessage() != null){
+                if (Objects.requireNonNull(e.getMessage()).length() > 100){
+                    response = e.getMessage().substring(0,100);
+                }
+                else {
+                    response = e.getMessage();
+                }
             }
-            else {
-                response = e.getMessage();
+            if (responseData.length() > 500){
+                responseData = responseData.substring(0,500);
             }
-        }
-        if (responseData.length() > 500){
-            responseData = responseData.substring(0,500);
         }
 
         Calendar calendar = Calendar.getInstance();

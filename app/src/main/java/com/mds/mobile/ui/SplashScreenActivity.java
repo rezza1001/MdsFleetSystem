@@ -22,7 +22,6 @@ import org.json.JSONObject;
 
 public class SplashScreenActivity extends AppCompatActivity implements IMyDialog {
 
-    private static int SPLASH_TIME_OUT = 2000;
 
     private MyDevice myDevice;
 
@@ -62,7 +61,7 @@ public class SplashScreenActivity extends AppCompatActivity implements IMyDialog
                     JSONObject data = obj.getJSONObject("version");
                     int versionCode = data.getInt("code");
 
-                    if (myDevice.getVersionCode() > versionCode){
+                    if (myDevice.getVersionCode() < versionCode){
                         startActivity(new Intent(SplashScreenActivity.this, UpdateAppsActivity.class));
                         SplashScreenActivity.this.finish();
                     }

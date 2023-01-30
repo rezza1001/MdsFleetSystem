@@ -2,6 +2,7 @@ package com.mds.mobile.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.mds.mobile.R;
 import com.mds.mobile.base.ErrorCode;
-import com.mds.mobile.base.Global;
 import com.mds.mobile.database.AccountDB;
 import com.mds.mobile.model.ApplicationError;
 import com.mds.mobile.model.UserProfile;
@@ -29,6 +29,7 @@ import com.mds.mobile.remote.service.LoginServiceClient;
 import com.mds.mobile.ui.client.secure.ClientDashboardActivity;
 import com.mds.mobile.ui.driver.secure.DriverDashboardActivity;
 import com.mds.mobile.util.GlobalHelper;
+import com.mds.mobile.util.NetworkUtil;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -62,6 +63,8 @@ public class LoginActivity extends RetrofitBaseUi implements View.OnClickListene
         tvContactUs.setOnClickListener(this);
 
         clearInputField();
+
+        Log.d("LoginActivity","Network : "+ NetworkUtil.getConnection(getApplication()).toStringData());
     }
 
     void clearInputField(){

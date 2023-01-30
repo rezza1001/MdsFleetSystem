@@ -29,6 +29,10 @@ public class UpdateAppsActivity extends DriverBaseUi{
         txvw_desc_00.setText(note);
 
         findViewById(R.id.mrly_download_00).setOnClickListener(v -> {
+            if (linkUrl.isEmpty()){
+                Toast.makeText(this,"Apk URL not found", Toast.LENGTH_SHORT).show();
+                return;
+            }
             Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(linkUrl));
             startActivity(viewIntent);
             UpdateAppsActivity.this.finish();
@@ -43,6 +47,7 @@ public class UpdateAppsActivity extends DriverBaseUi{
     }
 
     private void load(){
+        Loading.showLoading(this,"Load link apk. Please wait..");
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("CONFIG").document("apk");
         docRef.get().addOnCompleteListener(task -> {
