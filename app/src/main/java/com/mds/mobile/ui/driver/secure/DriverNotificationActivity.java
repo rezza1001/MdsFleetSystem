@@ -104,7 +104,7 @@ public class DriverNotificationActivity extends DriverBaseUi {
     protected void onErrorReceived(ApplicationError applicationError) {
         Loading.cancelLoading();
 
-        MyDialog.showDialog1Btn(this, MyDialog.DIALOG_ID_ALERT, getString(R.string.title_faq),
+        MyDialog.showDialog1Btn(this, MyDialog.DIALOG_ID_ALERT, getString(R.string.title_notification),
                 applicationError.getMessage(), getString(R.string.ok), this);
     }
 

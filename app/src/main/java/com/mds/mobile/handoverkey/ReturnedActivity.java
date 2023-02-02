@@ -182,6 +182,11 @@ public class ReturnedActivity extends DriverBaseUi {
             return;
         }
 
+        int selectedPosition = spnr_car.getSelectedItemPosition();
+        if (selectedPosition < 0){
+            Utility.showToastError(this,"Silahkan pilih kendaraan");
+            return;
+        }
 
         ViewToImage fileImage = new ViewToImage(this,Global.PATH_ABSENT,imvw_chooser.getViewImage(),System.currentTimeMillis()+"");
 
@@ -192,7 +197,7 @@ public class ReturnedActivity extends DriverBaseUi {
             data.put("user_id",userProfile.getUserId());
             data.put("time",dateFormatApi.format(new Date()));
             data.put("pic", name);
-            data.put("fleet", fleetMap.get(spnr_car.getSelectedItemPosition()));
+            data.put("fleet", fleetMap.get(selectedPosition));
             data.put("note", "");
             data.put("photo", fileImage.getBase64String());
         } catch (JSONException e) {

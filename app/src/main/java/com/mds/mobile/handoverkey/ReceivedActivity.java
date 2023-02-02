@@ -1,6 +1,7 @@
 package com.mds.mobile.handoverkey;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -200,6 +201,13 @@ public class ReceivedActivity extends DriverBaseUi {
             return;
         }
 
+        int selectedPosition = spnr_car.getSelectedItemPosition();
+        if (selectedPosition < 0){
+            Utility.showToastError(this,"Silahkan pilih kendaraan");
+            return;
+        }
+
+
         ViewToImage fileImage = new ViewToImage(this,Global.PATH_ABSENT,imvw_chooser.getViewImage(),System.currentTimeMillis()+"");
 
         PostManager post = new PostManager(this, ServiceGenerator.HANDOVER_TAKING);
@@ -210,7 +218,7 @@ public class ReceivedActivity extends DriverBaseUi {
             data.put("time",dateFormatApi.format(new Date()));
             data.put("pic", name);
             data.put("note", "");
-            data.put("fleet", fleetMap.get(spnr_car.getSelectedItemPosition()));
+            data.put("fleet", fleetMap.get(selectedPosition));
             data.put("photo", fileImage.getBase64String());
         } catch (JSONException e) {
             e.printStackTrace();

@@ -307,21 +307,17 @@ public class DriverStnkActivity extends DriverBaseUi implements AdapterView.OnIt
         int mDayParam = mDay;
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(ctx,
-                new DatePickerDialog.OnDateSetListener() {
+                (view, year, monthOfYear, dayOfMonth) -> {
+                    mMonth = monthOfYear + 1;
+                    mYear=year;
+                    mDay=dayOfMonth;
 
-                    @Override
-                    public void onDateSet(DatePicker view, int year,
-                                          int monthOfYear, int dayOfMonth) {
-                        mMonth = monthOfYear + 1;
-                        mYear=year;
-                        mDay=dayOfMonth;
+                    etDateSent.setText(mDay +"/" + mMonth +"/" +mYear);
 
-                        etDateSent.setText(mDay +"/" + mMonth +"/" +mYear);
-
-                    }
                 }, mYearParam, mMonthParam, mDayParam);
 
         datePickerDialog.show();
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
     }
 
     private boolean isValid(){
