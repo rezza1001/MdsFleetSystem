@@ -1,7 +1,6 @@
 package com.mds.mobile.handoverkey;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -175,7 +174,9 @@ public class ReceivedActivity extends DriverBaseUi {
                     JSONObject  data = obj.getJSONObject("data");
                     JSONObject work = data.getJSONObject("start_work");
                     if (!work.getString("time").isEmpty()){
-                        isAbsent = true;
+                        if (work.getString("status").equalsIgnoreCase("Approved")){
+                            isAbsent = true;
+                        }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
