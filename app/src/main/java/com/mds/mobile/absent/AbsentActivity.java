@@ -294,11 +294,11 @@ public class AbsentActivity extends DriverBaseUi {
                         card_absentIn.getChildAt(1).setVisibility(View.GONE);
                         absentStatus = AbsentStatus.ABSENT_IN;
                         JSONObject work = data.getJSONObject("start_work");
-                        if (!work.getString("status").equalsIgnoreCase("Approved")){
-                            ErrorDialog dialog = new ErrorDialog(this);
-                            dialog.show("Absent Masuk","Status absen masuk "+work.getString("status")+".Silahkan melakukan absen ulang");
-                            return;
-                        }
+//                        if (!work.getString("status").equalsIgnoreCase("Approved")){
+//                            ErrorDialog dialog = new ErrorDialog(this);
+//                            dialog.show("Absent Masuk","Status absen masuk "+work.getString("status")+".Silahkan melakukan absen ulang");
+//                            return;
+//                        }
 
                         JSONObject position = work.getJSONObject("position");
                         Date inTime = dateFormatApi.parse(work.getString("time"));
@@ -316,11 +316,11 @@ public class AbsentActivity extends DriverBaseUi {
                         if (work.getString("time").isEmpty()){
                             return;
                         }
-                        if (!work.getString("status").equalsIgnoreCase("Approved")){
-                            ErrorDialog dialog = new ErrorDialog(this);
-                            dialog.show("Absent Pulang","Status absen pulang "+work.getString("status")+".Silahkan melakukan absen ulang");
-                            return;
-                        }
+//                        if (!work.getString("status").equalsIgnoreCase("Approved")){
+//                            ErrorDialog dialog = new ErrorDialog(this);
+//                            dialog.show("Absent Pulang","Status absen pulang "+work.getString("status")+".Silahkan melakukan absen ulang");
+//                            return;
+//                        }
 
                         absentStatus = AbsentStatus.ABSENT_OUT;
                         JSONObject position = work.getJSONObject("position");
