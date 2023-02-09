@@ -267,6 +267,7 @@ public class PostManager extends AsyncTask<String, String, String> {
 
 
     protected void onPostExecute(String presults) {
+        Loading.cancelLoading();
         Utility.LogDbug(TAG,"onPostExecute "+ presults.length());
         if (context == null){
             Utility.LogDbug(TAG,"Request Canceled !!!");
@@ -276,7 +277,6 @@ public class PostManager extends AsyncTask<String, String, String> {
         long diff = date1.getTime() - dateStart.getTime();
         Utility.LogDbug(TAG,"TOTAL TIME : "+ diff+" Seconds");
 
-        Loading.cancelLoading();
         try {
 
             String results = presults.split(SPARATOR)[1];
