@@ -135,7 +135,7 @@ public class ReceivedActivity extends DriverBaseUi {
                 }
             });
 
-            checkIsAbsentIn();
+//            checkIsAbsentIn();
         });
     }
 

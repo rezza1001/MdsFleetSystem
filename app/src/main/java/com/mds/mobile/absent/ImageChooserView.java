@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -89,6 +88,11 @@ public class ImageChooserView extends MyView {
             hasImage = true;
 
             Bitmap fileImage = FileProcessing.openImage(mActivity,mPath+imageName);
+            if (fileImage == null){
+                ErrorDialog dialog = new ErrorDialog(mActivity);
+                dialog.show("Image Failed","Terjadi kesalahan dalam proses pengambilan gambar ("+ Build.MODEL +" - "+ Build.VERSION.SDK_INT+")");
+                return;
+            }
             int width = fileImage.getWidth();
             int height = fileImage.getHeight();
             int mWidth = width;

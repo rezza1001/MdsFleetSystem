@@ -131,7 +131,7 @@ public class MainHandoverActivity extends DriverBaseUi {
     @Override
     protected void onResume() {
         super.onResume();
-        checkIsAbsentIn();
+//        checkIsAbsentIn();
     }
 
     @Override

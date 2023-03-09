@@ -244,9 +244,7 @@ public class FileProcessing {
         }
 
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        Bitmap bitmap = BitmapFactory.decodeFile(image.getAbsolutePath(),bmOptions);
-        Log.d("FileProcessing","IMAGE FOUND "+bitmap.getWidth()+" X "+ bitmap.getHeight());
-        return bitmap;
+        return BitmapFactory.decodeFile(image.getAbsolutePath(),bmOptions);
     }
 
     public static Bitmap openImage(String url){

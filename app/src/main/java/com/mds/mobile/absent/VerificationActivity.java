@@ -128,7 +128,7 @@ public class VerificationActivity extends DriverBaseUi {
         }
 
         if (absentParam.absentStatus == AbsentStatus.ABSENT_OUT){
-            checkReturnKeyStatus();
+//            checkReturnKeyStatus();
         }
     }
 

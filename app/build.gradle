@@ -8,8 +8,8 @@ android {
         applicationId "com.mds.mobile"
         minSdkVersion 22
         targetSdkVersion 32
-        versionCode 15
-        versionName "1.1.15"
+        versionCode 17
+        versionName "1.1.17"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

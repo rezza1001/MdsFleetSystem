@@ -186,6 +186,7 @@ public class GPSTracker extends Service implements LocationListener {
 
             }catch (Exception e){
                 Log.d(TAG,e.getMessage());
+                mAddress = "Lokasi tidak diketahui";
             }
         }
         else {
