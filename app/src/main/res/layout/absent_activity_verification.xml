@@ -162,7 +162,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_weight="7.5"
                             android:fontFamily="@font/ubuntu_light"
-                            android:text="Pinang Utara, RT.001/RW.006, Panunggangan., Kec. Cibodas, Kota Tangerang. -6.223196, 106.618130"
+                            android:text="Unknown Location"
                             android:textColor="#80000000"
                             android:textSize="11sp" />
                     </LinearLayout>

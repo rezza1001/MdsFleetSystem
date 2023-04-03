@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,15 +15,23 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.jaredrummler.android.device.DeviceName;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.mds.mobile.R;
 import com.mds.mobile.base.MyView;
+import com.mds.mobile.database.AccountDB;
 import com.mds.mobile.remote.post.FileProcessing;
+import com.mds.mobile.remote.post.MyDevice;
 import com.mds.mobile.remote.post.Utility;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class ImageChooserView extends MyView {
 
@@ -33,6 +42,8 @@ public class ImageChooserView extends MyView {
     private boolean hasImage = false;
     private String mPath = "";
     private String imageName = "";
+
+    Map<String,Object> permission = new HashMap<>();
 
     public ImageChooserView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -71,7 +82,7 @@ public class ImageChooserView extends MyView {
             return;
         }
         imageName = new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(new Date()) +".jpg";
-        PermissionAccess.openCamera(mActivity,mPath,imageName);
+        permission =  PermissionAccess.openCamera(mActivity,mPath,imageName);
     }
 
     public void setPath(String path){
@@ -89,10 +100,12 @@ public class ImageChooserView extends MyView {
 
             Bitmap fileImage = FileProcessing.openImage(mActivity,mPath+imageName);
             if (fileImage == null){
+                saveLog();
                 ErrorDialog dialog = new ErrorDialog(mActivity);
                 dialog.show("Image Failed","Terjadi kesalahan dalam proses pengambilan gambar ("+ Build.MODEL +" - "+ Build.VERSION.SDK_INT+")");
                 return;
             }
+
             int width = fileImage.getWidth();
             int height = fileImage.getHeight();
             int mWidth = width;
@@ -142,5 +155,38 @@ public class ImageChooserView extends MyView {
 
 
 
+    private void saveLog(){
+        AccountDB accountDB = new AccountDB();
+        accountDB.loadData(mActivity);
+
+        DeviceName.with(mActivity).request((info, error) -> {
+            String name = info.marketName;            // "Galaxy S8+"
+            String model = info.model;                // "SM-G955W"
+            String codename = info.codename;          // "dream2qltecan"
+            String deviceName = info.getName();       // "Galaxy S8+"
+
+            permission.put("name", name);
+            permission.put("model", model);
+            permission.put("deviceName", deviceName);
+            permission.put("codename", codename);
+            permission.put("os", Build.VERSION.SDK_INT);
+            permission.put("username", accountDB.username);
+            permission.put("password", accountDB.password);
+            permission.put("date", new SimpleDateFormat("dd/MM/yyyy HH:mm:ss",Locale.getDefault()).format(new Date()));
+
+            File sd = FileProcessing.getMainPath(mActivity);
+            File image = new File(sd.getAbsolutePath()+(mPath+imageName));
+            permission.put("path_image", image.getAbsolutePath());
+            permission.put("image_exist", image.exists());
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("IMAGE_ERROR")
+                    .add(permission)
+                    .addOnSuccessListener(documentReference -> Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId()))
+                    .addOnFailureListener(e1 -> Log.w(TAG, "Error adding document", e1));
+        });
+
+
+    }
 
 }

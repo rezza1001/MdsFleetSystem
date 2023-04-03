@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -17,6 +18,8 @@ import com.mds.mobile.remote.post.FileProcessing;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class PermissionAccess {
@@ -32,7 +35,9 @@ public class PermissionAccess {
         }
     }
 
-    public static void openCamera(Activity mActivity, String photoPath, String fileName){
+    public static Map<String,Object> openCamera(Activity mActivity, String photoPath, String fileName){
+        Map<String,Object> data = new HashMap<>();
+
         String[] PERMISSIONS = {Manifest.permission.CAMERA,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE};
@@ -40,20 +45,25 @@ public class PermissionAccess {
             ActivityCompat.requestPermissions(Objects.requireNonNull(mActivity), PERMISSIONS, 101);
         }
         else {
+            data.put("permission",true);
             String mediaPath = FileProcessing.getMainPath(mActivity).getAbsolutePath()+photoPath;
             String file =mediaPath+ fileName;
             File newfile = new File(file);
             Log.d("PermissionAccess","newfile "+file);
+            data.put("create_file_0",file);
             try {
                 boolean a = newfile.createNewFile();
                 if (a){
+                    data.put("create_file_1","Create File SUCCESS");
                     Log.d("PermissionAccess","createNewFile");
                 }
                 else{
+                    data.put("create_file_1","Create File FAILED");
                     Log.e("PermissionAccess","createNewFile Failed");
                 }
             }
             catch (IOException e) {
+                data.put("create_file_2","IOException "+ e.getMessage());
                 Log.e("PermissionAccess","IOException "+ e.getMessage());
                 e.printStackTrace();
             }
@@ -64,6 +74,8 @@ public class PermissionAccess {
             StrictMode.setVmPolicy(builder.build());
             mActivity.startActivityForResult(cameraIntent, OPEN_CAMERA);
         }
+
+        return data;
     }
 
 
