@@ -47,6 +47,7 @@ public class MainHandoverActivity extends DriverBaseUi {
     @Override
     protected void onMyCreate() {
         PermissionAccess.requestMain(this);
+        FileProcessing.createFolder(this, FileProcessing.ROOT);
         FileProcessing.createFolder(this, Global.PATH_IMAGES);
         FileProcessing.clearImage(this,Global.PATH_IMAGES);
 

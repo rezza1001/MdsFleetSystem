@@ -15,6 +15,7 @@ import android.util.Log;
 import androidx.core.app.ActivityCompat;
 
 import com.mds.mobile.remote.post.FileProcessing;
+import com.mds.mobile.remote.post.Utility;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +43,8 @@ public class PermissionAccess {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_EXTERNAL_STORAGE};
         if(checkPermission(mActivity, PERMISSIONS)){
+            data.put("permission",false);
+            Utility.showToastError(mActivity,"Membutuhkan Permission");
             ActivityCompat.requestPermissions(Objects.requireNonNull(mActivity), PERMISSIONS, 101);
         }
         else {

@@ -105,6 +105,7 @@ public class ImageChooserView extends MyView {
                 dialog.show("Image Failed","Terjadi kesalahan dalam proses pengambilan gambar ("+ Build.MODEL +" - "+ Build.VERSION.SDK_INT+")");
                 return;
             }
+//            saveLog();
 
             int width = fileImage.getWidth();
             int height = fileImage.getHeight();
