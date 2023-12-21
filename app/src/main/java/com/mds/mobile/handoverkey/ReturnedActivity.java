@@ -21,6 +21,7 @@ import com.mds.mobile.model.UserProfile;
 import com.mds.mobile.module.loading.Loading;
 import com.mds.mobile.remote.ServiceGenerator;
 import com.mds.mobile.remote.post.ErrorCode;
+import com.mds.mobile.remote.post.FileProcessing;
 import com.mds.mobile.remote.post.PostManager;
 import com.mds.mobile.remote.post.Utility;
 import com.mds.mobile.ui.driver.secure.DriverBaseUi;
@@ -61,6 +62,10 @@ public class ReturnedActivity extends DriverBaseUi {
     @SuppressLint("SetTextI18n")
     @Override
     protected void onMyCreate() {
+        FileProcessing.createFolder(this, FileProcessing.ROOT);
+        FileProcessing.createFolder(this, Global.PATH_IMAGES);
+        FileProcessing.clearImage(this,Global.PATH_IMAGES);
+
         TextView txvw_title = findViewById(R.id.txvw_title);
         txvw_title.setText("Pengembalian Kunci");
 
