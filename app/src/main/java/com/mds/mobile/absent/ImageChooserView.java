@@ -19,6 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.jaredrummler.android.device.DeviceName;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.mds.mobile.R;
+import com.mds.mobile.base.Global;
 import com.mds.mobile.base.MyView;
 import com.mds.mobile.database.AccountDB;
 import com.mds.mobile.remote.post.FileProcessing;
@@ -105,7 +106,7 @@ public class ImageChooserView extends MyView {
                 dialog.show("Image Failed","Terjadi kesalahan dalam proses pengambilan gambar ("+ Build.MODEL +" - "+ Build.VERSION.SDK_INT+")");
                 return;
             }
-//            saveLog();
+            saveLog();
 
             int width = fileImage.getWidth();
             int height = fileImage.getHeight();
@@ -160,6 +161,8 @@ public class ImageChooserView extends MyView {
         AccountDB accountDB = new AccountDB();
         accountDB.loadData(mActivity);
 
+        MyDevice device = new MyDevice(mActivity);
+
         DeviceName.with(mActivity).request((info, error) -> {
             String name = info.marketName;            // "Galaxy S8+"
             String model = info.model;                // "SM-G955W"
@@ -179,6 +182,13 @@ public class ImageChooserView extends MyView {
             File image = new File(sd.getAbsolutePath()+(mPath+imageName));
             permission.put("path_image", image.getAbsolutePath());
             permission.put("image_exist", image.exists());
+
+            File root = new File(sd.getAbsoluteFile() +"/"+ FileProcessing.ROOT);
+            permission.put("root_folder", root.exists());
+            permission.put("apk_version", device.getVersion());
+
+            File absent = new File(sd.getAbsoluteFile() + Global.PATH_IMAGES);
+            permission.put("absent _folder", absent.exists());
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             db.collection("IMAGE_ERROR")

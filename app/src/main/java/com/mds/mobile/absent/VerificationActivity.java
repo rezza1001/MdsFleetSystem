@@ -19,6 +19,7 @@ import com.mds.mobile.base.Global;
 import com.mds.mobile.model.UserProfile;
 import com.mds.mobile.remote.ServiceGenerator;
 import com.mds.mobile.remote.post.ErrorCode;
+import com.mds.mobile.remote.post.FileProcessing;
 import com.mds.mobile.remote.post.PostManager;
 import com.mds.mobile.remote.post.Utility;
 import com.mds.mobile.ui.driver.secure.DriverBaseUi;
@@ -60,6 +61,11 @@ public class VerificationActivity extends DriverBaseUi {
 
     @Override
     protected void onMyCreate() {
+        PermissionAccess.requestMain(this);
+        FileProcessing.createFolder(this, FileProcessing.ROOT);
+        FileProcessing.createFolder(this, Global.PATH_IMAGES);
+        FileProcessing.clearImage(this,Global.PATH_IMAGES);
+
         txvw_type = findViewById(R.id.txvw_type);
         txvw_date = findViewById(R.id.txvw_date);
         txvw_time = findViewById(R.id.txvw_time);
