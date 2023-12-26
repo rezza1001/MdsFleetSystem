@@ -50,6 +50,8 @@ import com.mds.mobile.remote.entity.drivervehiclelist.response.GetFleetResponseE
 import com.mds.mobile.remote.entity.drivervehiclelist.response.ResponseDatum;
 import com.mds.mobile.remote.entity.odometer.request.AddFleetOdometerRequestEntity;
 import com.mds.mobile.remote.entity.odometer.response.AddFleetOdometerResponseEntity;
+import com.mds.mobile.remote.post.FileProcessing;
+import com.mds.mobile.remote.post.Utility;
 import com.mds.mobile.remote.service.DriverServiceClient;
 import com.mds.mobile.ui.imagepicker.ImagePickerActivity;
 import com.mds.mobile.util.GlobalHelper;
@@ -352,14 +354,17 @@ public class DriverUpdateKmActivity extends DriverBaseUi implements AdapterView.
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE) {
             if (resultCode == Activity.RESULT_OK) {
                 Uri uri = data.getParcelableExtra("path");
                 try {
                     // You can update this bitmap to your server
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
-                    if(clickedCamera!=null){
-                        if(clickedCamera.equals(ivFotoKm)){
+//                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                    String dest = FileProcessing.getMainPath(this)+"/camera/updatekm"+System.currentTimeMillis()+".jpg";
+                    Bitmap bitmap = Utility.compressImage(uri.getPath(), dest);
+                    if (clickedCamera != null) {
+                        if (clickedCamera.equals(ivFotoKm)) {
                             MyLog.info("BITMAP DI ivFotoKm");
                             bmpKm = bitmap;
                         }

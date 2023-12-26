@@ -3,6 +3,8 @@ package com.mds.mobile.remote.post;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -194,6 +197,17 @@ public class Utility {
         }
 
         return jsonString;
+    }
+
+    public static Bitmap compressImage(String sourceImagePath, String destinationImagePath) throws IOException {
+        Bitmap sourceBitmap = BitmapFactory.decodeFile(sourceImagePath);
+        Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
+        int quality = 80;
+        FileOutputStream fos = new FileOutputStream(destinationImagePath);
+        sourceBitmap.compress(compressFormat, quality, fos);
+        fos.close();
+
+        return BitmapFactory.decodeFile(destinationImagePath);
     }
 
 }
