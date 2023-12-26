@@ -90,6 +90,9 @@ public class DriverUpdateKmActivity extends DriverBaseUi implements AdapterView.
     protected void onMyCreate() {
 
         MyLog.info("onMyCreate()");
+        String dest = "/camera";
+        FileProcessing.clearImage(dest);
+
 
         Intent intent = getIntent();
         fleetIdBundle = intent.getStringExtra("fleet_id");
