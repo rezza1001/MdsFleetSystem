@@ -272,7 +272,7 @@ public class DriverUpdateKmActivity extends DriverBaseUi implements AdapterView.
 
         String strBitmap1="";
         if(bmpKm!=null){
-            strBitmap1 = GlobalHelper.bitmapToBase64String(bmpKm,100);
+            strBitmap1 = GlobalHelper.bitmapToBase64String(bmpKm,70);
         }
 
 //        MyLog.info("BITMAP*********** KM: "+strBitmap1);
