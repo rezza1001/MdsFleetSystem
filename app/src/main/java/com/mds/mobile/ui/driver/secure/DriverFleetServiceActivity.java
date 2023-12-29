@@ -46,6 +46,8 @@ import com.mds.mobile.remote.entity.drivervehiclelist.response.GetFleetResponseE
 import com.mds.mobile.remote.entity.drivervehiclelist.response.ResponseDatum;
 import com.mds.mobile.remote.entity.fleetservice.request.AddFleetServiceRequestEntity;
 import com.mds.mobile.remote.entity.fleetservice.response.AddFleetServiceResponseEntity;
+import com.mds.mobile.remote.post.FileProcessing;
+import com.mds.mobile.remote.post.Utility;
 import com.mds.mobile.remote.service.DriverServiceClient;
 import com.mds.mobile.ui.imagepicker.ImagePickerActivity;
 import com.mds.mobile.util.GlobalHelper;
@@ -90,6 +92,9 @@ public class DriverFleetServiceActivity extends DriverBaseUi implements AdapterV
 
     @Override
     protected void onMyCreate() {
+
+        String dest = "/camera";
+        FileProcessing.clearImage(dest);
 
         Intent intent = getIntent();
         fleetIdBundle = intent.getStringExtra("fleet_id");
@@ -183,10 +188,10 @@ public class DriverFleetServiceActivity extends DriverBaseUi implements AdapterV
         String strBitmap2="-";
         String strKeluhan="-";
         if(bitmap1!=null){
-            strBitmap1 = GlobalHelper.bitmapToBase64String(bitmap1,100);
+            strBitmap1 = GlobalHelper.bitmapToBase64String(bitmap1,70);
         }
         if(bitmap2!=null){
-            strBitmap2 = GlobalHelper.bitmapToBase64String(bitmap2,100);
+            strBitmap2 = GlobalHelper.bitmapToBase64String(bitmap2,70);
         }
 
         if(GlobalHelper.isEmpty(etKeluhan.getText().toString())){
@@ -500,7 +505,9 @@ public class DriverFleetServiceActivity extends DriverBaseUi implements AdapterV
 
                 try {
                     // You can update this bitmap to your server
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                    String dest = FileProcessing.getMainPath(this)+"/camera/service"+System.currentTimeMillis()+".jpg";
+                    Bitmap bitmap = Utility.compressImage(uri.getPath(), dest);
+//                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
                     if (clickedCamera != null) {
                         if (clickedCamera.equals(ivCamera1)) {
                             MyLog.info("BITMAP DI CAMERA1");

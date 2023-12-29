@@ -27,6 +27,7 @@ import com.mds.mobile.remote.post.MyDevice;
 import com.mds.mobile.remote.post.Utility;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -99,7 +100,15 @@ public class ImageChooserView extends MyView {
             rvly_selectPhoto.setVisibility(VISIBLE);
             hasImage = true;
 
+            String from = FileProcessing.getMainPath(mActivity)+mPath+imageName;
+            String dest = FileProcessing.getMainPath(mActivity)+mPath+imageName;
             Bitmap fileImage = FileProcessing.openImage(mActivity,mPath+imageName);
+            try {
+                fileImage = Utility.compressImage(from, dest);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             if (fileImage == null){
                 saveLog();
                 ErrorDialog dialog = new ErrorDialog(mActivity);

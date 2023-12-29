@@ -198,6 +198,7 @@ public class PostManager extends AsyncTask<String, String, String> {
             if (type.equals("POST") || type.equals("PUT")){
                 httpURLConnection.setDoOutput(true);
             }
+            httpURLConnection.setReadTimeout(60000);
             httpURLConnection.setRequestProperty("Content-Type", "application/json"); // here you are setting the `Content-Type` for the data you are sending which is `application/json`
             httpURLConnection.setRequestProperty("Accept", "application/json"); // here you are setting the `Content-Type` for the data you are sending which is `application/json`
 
